@@ -1,6 +1,8 @@
 const elixir = require('laravel-elixir');
+var ElixirGroup = require('laravel-elixir-group');
 
 require('laravel-elixir-vue-2');
+require('laravel-elixir-wiredep');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,7 +15,34 @@ require('laravel-elixir-vue-2');
  |
  */
 
+var depOptions = {
+    fileTypes: {
+        php: {
+            block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
+            detect: {
+                js: /<script.*src=['"]([^'"]+)/gi,
+                css: /<link.*href=['"]([^'"]+)/gi
+            },
+            replace: {
+                js: '<script src="{{ asset(\'{{filePath}}\') }}"></script>',
+                css: '<link rel="stylesheet" href="{{ asset(\'{{filePath}}\') }}" />'
+            }
+        }
+    }
+};
+
+ElixirGroup.register('vendor', function(){
+	elixir(function(mix){
+		mix.wiredep('php', {
+			src: 'index.blade.php'
+		}, depOptions);
+	});
+});
+
 elixir(mix => {
     mix.sass('app.scss')
        .webpack('app.js');
 });
+
+
+ElixirGroup.start();

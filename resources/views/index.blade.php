@@ -12,10 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- bower:css -->
-
+        <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
         <!-- endbower -->
 
         <link rel="stylesheet" href="css/app.css">
+
 	</head>
 	<body ng-app="risqapp" id="top">
         <nav class="nav">
@@ -48,12 +49,18 @@
           </div>
         </footer>
 
-	</body>
+          
 
-    <!-- Bower Dependencies -->
     <!-- bower:js -->
-
+    <script src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
+    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
     <!-- endbower -->
+
+    <!-- App JS -->
+
 
     <!-- Adobe Typekit -->
     <script src="https://use.typekit.net/ols4gou.js"></script>
@@ -70,5 +77,6 @@
       ga('send', 'pageview');
 
     </script>
+	</body>
 
 </html>

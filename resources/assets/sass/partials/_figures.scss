@@ -21,7 +21,7 @@
   width: 1150px;
   position: relative;
   display: block;
-  moz-transform: rotate(-80deg);
+  -moz-transform: rotate(-80deg);
   -o-transform: rotate(-80deg);
   -webkit-transform: rotate(-80deg);
   -ms-transform: rotate(-80deg);
@@ -107,7 +107,7 @@
 @media screen and (max-width: $medium) {
   .rotate {
     width: 100%;
-    moz-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
