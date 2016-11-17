@@ -1,0 +1,101 @@
+nav {
+  width: 100%;
+  clear: both;
+}
+
+.risq-nav {
+    background: $black;
+    position: absolute;
+    float: right;
+    width: 680px;
+    height: 680px;
+    border-radius: 100% 0 100% 100%;
+    right: 0px;
+
+    h2 {
+      color: $white;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+        :hover {
+          color: $white;
+          text-decoration: none;
+
+        }
+     }
+}
+
+a.ssk.ssk-icon {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.risq-brand {
+    margin: 0 auto;
+    width: 71%;
+    display: block;
+    padding-top: 120px;
+}
+
+.risq-social-icons {
+}
+
+.ssk:before {
+    color: $white !important;
+}
+
+.ssk.ssk-lg:before {
+    font-size: 50px !important;
+}
+
+.risq-social-icons.ssk-lg {
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  right: 0px;
+  text-align: center;
+}
+
+.footer-container {
+    background-color: rgba($strawberrykiwi, 0.9);
+    min-height: 80px;
+    padding: 20px;
+    color: $white;
+    font-size: 20px;
+}
+.social-icons {
+    padding-top: 20px;
+}
+a#bottom {
+  color: $white;
+  :hover {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+@media screen and (max-width: $large) {
+  .risq-nav {
+    position: relative;
+    height: 80px;
+    border-radius: 0 0 0 0;
+    width: 100%;
+    }
+
+    .risq-social-icons.ssk-lg {
+        display: none;
+    }
+
+    .risq-brand {
+      padding-top: 0;
+      text-align: center;
+
+      img {
+        width: 100px;
+        margin: 0 auto;
+      }
+  }
+}

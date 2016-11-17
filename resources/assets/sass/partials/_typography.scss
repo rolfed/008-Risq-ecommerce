@@ -1,0 +1,39 @@
+.white {
+  color: $white;
+}
+h1 {}
+h2 {
+  font-family: "eloquent-jf-small-caps-pro"!important;
+}
+h3 {
+  font-family: "mr-eaves-xl-sans"!important;
+  font-weight: 300;
+  font-size: 97px;
+}
+h4 {
+  font-family: "mr-eaves-xl-sans"!important;
+  font-weight: bold;
+  font-size: 20px;
+  color: $gray;
+}
+p.recipe-info {
+  left: 40%;
+  position: absolute;
+  display: block;
+  font-size: 45px;
+  width: 50%;
+}
+p.location-info {
+  font-family: "mr-eaves-xl-sans"!important;
+  font-size: 18px;
+  line-height: 19px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+@media screen and (max-width: $medium) {
+  p.recipe-info {
+    font-size: 35px;
+
+  }
+}

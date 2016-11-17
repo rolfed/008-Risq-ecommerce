@@ -1,0 +1,164 @@
+.no-right-margin {
+  margin-right: -15px;
+}
+.no-left-margin {
+  margin-left: -15px;
+}
+.position-absolute {
+  position: absolute;
+}
+.space {
+  height: 5px;
+}
+.recipe-bg-image {
+    background-image: url('../img/risq-energy-drink-image.jpg');
+    height: 700px;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+  }
+.rotate {
+  width: 1150px;
+  position: relative;
+  display: block;
+  moz-transform: rotate(-80deg);
+  -o-transform: rotate(-80deg);
+  -webkit-transform: rotate(-80deg);
+  -ms-transform: rotate(-80deg);
+  transform: rotate(-80deg);
+}
+
+.recipe-content {
+  padding: 20px;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.strawberrykiwi.rotate,
+.peachmango.rotate,
+.watermelon.rotate,
+.greenapple.rotate {
+    padding: 30px;
+
+    h3, a {
+      text-align: left;
+      font-size: 97px;
+      padding-left: 80px;
+      position: relative;
+      display: block;
+      text-transform: uppercase;
+      color: $white;
+
+      :hover, :focus, :visited {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+}
+
+.strawberrykiwi.rotate {
+  left: -406px;
+  bottom: -200px;
+}
+.peachmango.rotate {
+  left: -206px;
+  bottom: 4px;
+}
+.watermelon.rotate {
+  left: -7px;
+  bottom: 203px;
+}
+.greenapple.rotate {
+  left: 190px;
+  bottom: 407px;
+}
+.strawberrykiwi {
+  background-color: $strawberrykiwi;
+}
+.peachmango {
+  background-color: $peachmango;
+}
+.watermelon {
+  background-color: $watermelon;
+}
+.greenapple {
+  background-color: $greenapple;
+}
+.space {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  position: inherit;
+}
+#recipe, #recipe2, #recipe3, #recipe4 {
+  left: -9999px;
+  -webkit-transition: left 0.5s ease;
+}
+.recipe-title {
+  left: -406px;
+  text-transform: uppercase;
+}
+.location-space {
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: $medium) {
+  .rotate {
+    width: 100%;
+    moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  .strawberrykiwi.rotate,
+  .peachmango.rotate,
+  .watermelon.rotate,
+  .greenapple.rotate {
+    left: 0px;
+    bottom: 0px;
+    position: inherit;
+
+    h3 {
+      padding-left: 0px;
+    }
+  }
+  .strawberrykiwi.rotate a,
+  .peachmango.rotate a,
+  .watermelon.rotate a,
+  .greenapple.rotate a {
+      padding-left: 0px  !important;
+      font-size: 37px;
+  }
+
+  a.showHideRecipe {
+  }
+
+  h3.rotate.recipe-title {
+      font-size: 37px;
+      left: 0px;
+      margin-top: 50px;
+  }
+
+  .recipe-bg-image {
+        background-image: none;
+        height: 100%;
+
+    }
+    p.recipe-info {
+    left: 15px;
+    display: block;
+    font-size: 22px;
+    width: 92%;
+  }
+  .location-space {
+    display: none;
+  }
+  .recipe-title {
+    left: 0px;
+    text-transform: uppercase;
+  }
+
+}
