@@ -8,3 +8,4 @@
 		$routeProvider.otherwise({redirectTo: '/home'});
 }]);
   
+//# sourceMappingURL=app.js.map

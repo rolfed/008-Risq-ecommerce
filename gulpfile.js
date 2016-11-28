@@ -3,6 +3,7 @@ var ElixirGroup = require('laravel-elixir-group');
 
 require('laravel-elixir-vue-2');
 require('laravel-elixir-wiredep');
+require('laravel-elixir-ngtemplatecache');
 
 /*
  |--------------------------------------------------------------------------
@@ -39,10 +40,31 @@ ElixirGroup.register('vendor', function(){
 	});
 });
 
-elixir(mix => {
-    mix.sass('app.scss')
-       .webpack('app.js');
-});
+elixir(function(mix){
 
+    mix
+        
+
+        .sass('app.scss', 'public/assets/css/app.css')
+
+        .scripts ([
+            '**/*.js',
+        ], 'public/assets/js/app.js')
+
+        .version([
+            'public/assets/css/app.css',
+            'public/assets/js/app.js'
+        ])
+
+        .copy('resources/views/**/*.html', 'public/assets/views')
+
+        .browserSync({
+            proxy: 'localhost',
+            port: '8000',
+            files: [
+                'resources/**/*'
+            ]
+        });
+});
 
 ElixirGroup.start();

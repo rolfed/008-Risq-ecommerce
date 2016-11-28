@@ -15,68 +15,39 @@
         <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
         <!-- endbower -->
 
-        <link rel="stylesheet" href="css/app.css">
-
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 	</head>
-	<body ng-app="risqapp" id="top">
-        <nav class="nav">
-            <div class="container-fluid">
-                <div class="risq-nav">
-                    <div class="risq-brand">
-                    <a href="/"><img src="img/risq-energy-logo.png" /></a>
-                    <div class="risq-social-icons ssk-lg">
-                        <h2><a href="https://www.instagram.com/risqenergy/">Drink it - Mix it - Share it</a></h2>
-                        <a href="https://www.instagram.com/risqenergy/" class="ssk ssk-icon ssk-instagram" title="Instagram"></a>
-                        <a href="https://www.facebook.com/risqenergy/" class="ssk ssk-icon ssk-facebook" title="Facebook"></a>
-                        <a href="mailto:info@risqenergy.com?subject=Hello" class="ssk ssk-icon ssk-email" title="Email Risq"></a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+	<body ng-app="risq" id="top">
+        <ng-view ng-controller="MainCtrl as main">
 
-        <ng-view></ng-view>
+        </ng-view>
 
-        <footer class="footer-container">
-          <div class="row">
-              <div class="col-sm-12 text-center">
-                <a href="#top" id="bottom"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a>
-              </div>
-              <div class="col-sm-12 text-center social-icons">
-                  <a href="https://www.instagram.com/risqenergy/" class="ssk ssk-icon ssk-instagram" title="Instagram"></a>
-                  <a href="https://www.facebook.com/risqenergy/" class="ssk ssk-icon ssk-facebook" title="Facebook"></a>
-                  <a href="mailto:info@risqenergy.com?subject=Hello" class="ssk ssk-icon ssk-email" title="Email Risq"></a>
-              </div>
-          </div>
-        </footer>
+        <!-- bower:js -->
+        <script src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
+        <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+        <script src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
+        <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
+        <!-- endbower -->
 
-          
+        <!-- App JS -->
+        <script src="{{ asset('assets/js/app.js') }}"></script>
 
-    <!-- bower:js -->
-    <script src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
-    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
-    <!-- endbower -->
+        <!-- Adobe Typekit -->
+        <script src="https://use.typekit.net/ols4gou.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-    <!-- App JS -->
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-87594064-1', 'auto');
+          ga('send', 'pageview');
 
-    <!-- Adobe Typekit -->
-    <script src="https://use.typekit.net/ols4gou.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-87594064-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+        </script>
 	</body>
 
 </html>
