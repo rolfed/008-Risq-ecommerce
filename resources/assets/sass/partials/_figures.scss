@@ -10,12 +10,15 @@
 .space {
   height: 5px;
 }
+.recipe-wrapper {
+  position: relative;
+}
 .recipe-bg-image {
     background-image: url('../img/risq-energy-drink-image.jpg');
     height: 700px;
     background-position: center;
     overflow: hidden;
-    position: relative;
+    //position: absolute;
   }
 .rotate {
   width: 1150px;
@@ -33,7 +36,7 @@
   z-index: 2;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 702px;
   top: 0;
 }
 .strawberrykiwi.rotate,
@@ -95,6 +98,7 @@
 #recipe, #recipe2, #recipe3, #recipe4 {
   left: -9999px;
   -webkit-transition: left 0.5s ease;
+  transition: left 0.5s ease;
 }
 .recipe-title {
   left: -406px;
@@ -145,13 +149,17 @@
   .recipe-bg-image {
         background-image: none;
         height: 100%;
+        position: relative;
 
-    }
-    p.recipe-info {
-    left: 15px;
-    display: block;
-    font-size: 22px;
-    width: 92%;
+  }
+  .recipe-content {
+    height: 100%;
+  }
+  p.recipe-info {
+  left: 15px;
+  display: block;
+  font-size: 22px;
+  width: 92%;
   }
   .location-space {
     display: none;

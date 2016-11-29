@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en"><!--<![endif]-->
+<html lang="en" ng-app="risq"><!--<![endif]-->
 	<head>
         <meta charset="utf-8">
         <meta http-equiv"X-UA-Compatible" content="IE=edge">
@@ -13,32 +13,58 @@
 
         <!-- bower:css -->
         <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
         <!-- endbower -->
 
+        <!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 	</head>
-	<body ng-app="risq" id="top">
-        <ng-view ng-controller="MainCtrl as main">
+	<body ng-contoller="GlobalCtrl as global" id="top">
+        <div class="container">
+            
+            <navigation></navigation>
+            
+            <recipe></recipe>
 
-        </ng-view>
+            <instagram></instagram>
+            
+            <ecom></ecom>
+        </div>
 
         <!-- bower:js -->
-        <script src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
-        <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
-        <script src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
-        <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
-        <script src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
         <!-- endbower -->
 
         <!-- App JS -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
 
         <!-- Adobe Typekit -->
-        <script src="https://use.typekit.net/ols4gou.js"></script>
-        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>
+        <script type='text/javascript' >try{Typekit.load({ async: true });}catch(e){}</script>
+        
+        <!-- Instafeed -->
+          
+        <script type='text/javascript'>
+
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '3852337515',
+                template: '<div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="" /></a></div>',
+                clientId: 'e673a9025c6f4653978f207207a55c17',
+                accessToken: '3852337515.1677ed0.8553029f44eb4114a38e24bc44b75100',
+                resolution: 'standard_resolution',
+                limit: 8
+            });
+
+            feed.run();
+        </script>
 
         <!-- Google Analytics -->
-        <script>
+        <script type='text/javascript'>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -5,6 +5,7 @@
     background-position: center;
     overflow: hidden;
     position: relative;
+    display: block;
  }
  .ecom-bg-image::before {
  	background-color: $black;

@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="title gray">How do you like your drink?</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="recipe-wrapper">
+		<!-- Diagonal Recipes -->
+		<div class="recipe-bg-image">
+			<div class="strawberrykiwi rotate">
+				<h3><a ng-click="showRecipe(0);">Strawberry Kiwi</a></h3>
+			</div>
+			<div class="peachmango rotate">
+				<h3><a ng-click="showRecipe(1)">Peach Mango</a></h3>
+			</div>
+			<div class="watermelon rotate">
+				<h3><a ng-click="showRecipe(2);">Watermelon</a></h3>
+			</div>
+			<div class="greenapple rotate">
+				<h3><a ng-click="showRecipe(3);">Green Apple</a></h3>
+			</div>
+		</div>
+		<!-- /.Diagonal Recipes -->
+
+		<!-- Hidden Reciipes -->
+		<div class="strawberrykiwi recipe-content white" id="recipe">
+			<div class="div-show-hide">
+				<a class="showHideRecipe" ng-click="hideRecipe(0);">x</a>
+			</div>
+			<h3 class="rotate recipe-title">Strawberrykiwi</h3>
+			<p class="recipe-info">Build over ice in a rocks glass, 2 oz silver tequila, .75 oz lime, .75 oz simple, and 1 Strawberry kiwi risq </p>
+		</div>
+
+		<div class="peachmango recipe-content white" id="recipe2">
+			<div class="div-show-hide">
+				<a class="showHideRecipe" ng-click="hideRecipe(1);">x</a>
+			</div>
+			<h3 class="rotate recipe-title">Peach Mango</h3>
+			<p class="recipe-info">In a rocks glass, 2 oz bourbon, top with pineapple juice, and 1 peach mango Risq</p>
+		</div>
+
+		<div class="watermelon recipe-content white" id="recipe3">
+			<div class="div-show-hide">
+				<a class="showHideRecipe" ng-click="hideRecipe(2);">x</a>
+			</div>
+			<h3 class="rotate recipe-title">Watermelon</h3>
+			<p class="recipe-info">2 oz vodka, .75 oz fresh lime juice, .5oz simple syrup, 6 basil leaves, shake and strain over ice into a tall glass, add splash of soda water, and 1 watermelon Risq </p>
+		</div>
+
+		<div class="greenapple recipe-content white" id="recipe4">
+			<div class="div-show-hide">
+				<a class="showHideRecipe" ng-click="hideRecipe(3);">x</a>
+			</div>
+			<h3 class="rotate recipe-title">Green Apple</h3>
+			<p class="recipe-info">1.5 oz vodka, 1.5 oz sour apple pucker, add splash of soda water, and 1 green apple RISQ</p>
+		</div>
+		<!-- /.Hidden Reciipes -->
+		</div><!-- /.recipe-wrapper -->
+</div><!-- /.row -->
+
+
+
+

@@ -1,10 +1,6 @@
-(function(){
-	'use strict'
-	var risq = angular.module('risq', ['ngRoute'])
+'use strict'
+var app = angular.module('risq', ['ngRoute'])
 
-	.config(['$locationProvider', '$routeProvider', function(){
-		$locationProvider.hashPrefix('');
 
-		$routeProvider.otherwise({redirectTo: '/home'});
-}]);
+
   
