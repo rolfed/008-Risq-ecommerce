@@ -48,7 +48,7 @@
         
         <!-- Instafeed -->
           
-        <script type='text/javascript'>
+        <!-- <script type='text/javascript'>
 
             var feed = new Instafeed({
                 get: 'user',
@@ -61,7 +61,7 @@
             });
 
             feed.run();
-        </script>
+        </script> -->
 
         <!-- Google Analytics -->
         <script type='text/javascript'>

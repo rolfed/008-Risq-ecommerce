@@ -1,4 +1,4 @@
-<div ng-controller="EcomCtrl">
+<div ng-controller="EcomCtrl" class="ecom-container">
 <!-- Mobile Button Ecommerce -->
 <div class="row">
 	<div class="col-sm-12 fadeOut">
@@ -17,11 +17,11 @@
 
 <div class="row">
 <!-- View 1 -->
-	<div class="col-sm-12" id="view-1">
+	<div class="col-sm-12 col-12-no-padding-left col-12-no-padding-right" id="view-1">
 		<div class="ecom-bg-image hidden-xs hidden-sm" id="ecom-image">
             <div class="btn-grab-wrapper">
               <div class="text-center ecom-wrapper">
-                <button class="btn-ecom" href="" onclick="grabSome()">Grab Some</button>
+                <button class="btn-ecom" href="" ng-click="grabSome()">Grab Some</button>
               </div> 
             </div> 
         </div>    
@@ -56,7 +56,7 @@
 		</table>
 		<div class="btn-checkout-wrapper">
 			<div class="text-center ecom-wrapper">
-				<a class="btn-ecom" href="" onclick="addrInput()">Purchase</a>
+				<a class="btn-ecom" href="" ng-click="addrInput()">Purchase</a>
 			</div> 
 		</div>
 
@@ -88,7 +88,7 @@
 	<div class="col-sm-6">
 		<div class="btn-addToCart-wrapper">
 			<div class="text-center ecom-wrapper">
-				<button class="btn-ecom" href="" onclick="addToCart()">Add to cart</button>
+				<button class="btn-ecom" href="" ng-click="addToCart()">Add to cart</button>
 			</div> 
 		</div> 
 	</div>
