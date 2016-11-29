@@ -13,7 +13,7 @@
 
         <!-- bower:css -->
         <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
-        <link rel="stylesheet" href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" /
         <!-- endbower -->
 
         <!-- Main CSS -->
@@ -23,20 +23,31 @@
         <div class="container">
             
             <navigation></navigation>
-            
+
+            <div class="space-lg"></div>
+
             <recipe></recipe>
 
+            <div class="space-lg"></div>
+
             <instagram></instagram>
-            
+
+            <div class="space-lg"></div> 
+
             <ecom></ecom>
+
+            <div class="space-lg"></div> 
+
+
         </div>
 
         <!-- bower:js -->
-        <script type='text/javascript' src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
-        <script type='text/javascript' src="{{ asset('/bower_components/angular/angular.js') }}"></script>
-        <script type='text/javascript' src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
-        <script type='text/javascript' src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
-        <script type='text/javascript' src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
+        <script src="{{ asset('/bower_components/jquery/dist/jquery.js') }}"></script>
+        <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+        <script src="{{ asset('/bower_components/angular-route/angular-route.js') }}"></script>
+        <script src="{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}"></script>
+        <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('/bower_components/instafeed/instafeed.js') }}"></script>
         <!-- endbower -->
 
         <!-- App JS -->
@@ -48,20 +59,20 @@
         
         <!-- Instafeed -->
           
-        <!-- <script type='text/javascript'>
+        <script type='text/javascript'>
 
             var feed = new Instafeed({
                 get: 'user',
                 userId: '3852337515',
                 template: '<div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="" /></a></div>',
                 clientId: 'e673a9025c6f4653978f207207a55c17',
-                accessToken: '3852337515.1677ed0.8553029f44eb4114a38e24bc44b75100',
+                accessToken: '3852337515.1677ed0.9a45801ee7664720843f68e8e380e994',
                 resolution: 'standard_resolution',
                 limit: 8
             });
 
             feed.run();
-        </script> -->
+        </script>
 
         <!-- Google Analytics -->
         <script type='text/javascript'>

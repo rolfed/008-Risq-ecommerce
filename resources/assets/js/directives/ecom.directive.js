@@ -17,7 +17,7 @@ function ecom(){
 
 		/* Ecommerce button animation - View 1 to View 2 */
 		$scope.grabSome = function(){
-			console.log('GrabSome is loading.')
+			//console.log('GrabSome is loading.')
 			var view1 = document.querySelector("#view-1");
 			
 			view1.style.opacity="0";
@@ -50,16 +50,17 @@ function ecom(){
 
 		/* Address Form - View 3 to View 4 */
 		$scope.addrInput = function(){
-			console.log("addrInput is loading");
+			//console.log("addrInput is loading");
 			var view2 = document.querySelector('#view-2');
 			var view3 = document.querySelector('#view-3');
 			var view4 = document.querySelector('#view-4');
 			view3.style.right="-100%";
 			view2.style.right="-100%";
 			view3.style.opacity="0";
-			view2.style.opacity="0";
-			view4.style.right="0%";
+			view4.style.right="100%";
 		};
+
+		$scope.form
 	}
 	/* Load Template */
 	return directive;

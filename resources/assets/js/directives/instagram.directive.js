@@ -34,6 +34,6 @@ function instagram(){
 		  ]
 	};
 
-	/* Load Template */
+	/* Load Directive */
 	return directive;
 }

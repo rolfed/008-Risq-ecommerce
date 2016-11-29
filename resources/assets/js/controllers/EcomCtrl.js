@@ -1,7 +1,7 @@
 app.controller('EcomCtrl', EcomCtrl);
 
 function EcomCtrl($scope){
-	console.log("EcomCtrl is loading.");
+	//console.log("EcomCtrl is loading.");
 
 	/* Load Products */
 		$scope.products = [
@@ -51,10 +51,26 @@ function EcomCtrl($scope){
 		var sum = 0;
 
 		// Add/Sub Price
+		console.log($scope.products[0]);
 		sum += parseInt($scope.products[productIndex].qty * productPrice, 10);
 
 		// Return total
 		return "| $" + sum;
 
 	}
+
+	/* Add up total cost */
+	$scope.totalCalc = function(){
+	    var sum = 0;
+	    var shipping = 5.00;
+	    var tax = 2.50;
+
+	    angular.forEach($scope.products, function(product, index){
+	      sum += parseInt(product.qty * productPrice, 10);
+	    });
+
+	    var sumPlusTax = sum + tax;
+
+	    return "$" + sumPlusTax + shipping;
+	 };
 };

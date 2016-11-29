@@ -247,6 +247,10 @@ a.showHideRecipe {
   height: 5px;
 }
 
+.space-lg {
+  height: 50px;
+}
+
 .recipe-wrapper {
   position: relative;
 }
@@ -296,6 +300,7 @@ a.showHideRecipe {
   display: block;
   text-transform: uppercase;
   color: #fff;
+  cursor: pointer;
 }
 
 .strawberrykiwi.rotate h3 :hover, .strawberrykiwi.rotate h3 :focus, .strawberrykiwi.rotate h3 :visited, .strawberrykiwi.rotate a :hover, .strawberrykiwi.rotate a :focus, .strawberrykiwi.rotate a :visited,
@@ -465,6 +470,11 @@ a.showHideRecipe {
   margin-top: 500px;
 }
 
+.ecom-container {
+  width: 1170px;
+  max-width: 1170px;
+}
+
 .bg-black {
   background-color: #000;
   height: 1000px;
@@ -532,7 +542,7 @@ a.showHideRecipe {
 }
 
 .sub-total {
-  font-size: 65px;
+  font-size: 55px;
 }
 
 .ecom-col {
@@ -640,9 +650,13 @@ input#expiry-year {
   transition: 1s;
 }
 
+#view-4 {
+  right: 175%;
+  position: absolute;
+}
+
 #view-2,
 #view-3,
-#view-4,
 #view-5,
 #view-6 {
   right: 100%;

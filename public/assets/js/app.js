@@ -7,7 +7,7 @@ var app = angular.module('risq', ['ngRoute'])
 app.controller('EcomCtrl', EcomCtrl);
 
 function EcomCtrl($scope){
-	console.log("EcomCtrl is loading.");
+	//console.log("EcomCtrl is loading.");
 
 	/* Load Products */
 		$scope.products = [
@@ -57,12 +57,28 @@ function EcomCtrl($scope){
 		var sum = 0;
 
 		// Add/Sub Price
+		console.log($scope.products[0]);
 		sum += parseInt($scope.products[productIndex].qty * productPrice, 10);
 
 		// Return total
 		return "| $" + sum;
 
 	}
+
+	/* Add up total cost */
+	$scope.totalCalc = function(){
+	    var sum = 0;
+	    var shipping = 5.00;
+	    var tax = 2.50;
+
+	    angular.forEach($scope.products, function(product, index){
+	      sum += parseInt(product.qty * productPrice, 10);
+	    });
+
+	    var sumPlusTax = sum + tax;
+
+	    return "$" + sumPlusTax + shipping;
+	 };
 };
 app.controller('GlobalCtrl', GlobalCtrl);
 
@@ -72,6 +88,11 @@ function GlobalCtrl(){
 };
 
 
+app.controller('MapCtrl', MapCtrl);
+
+function MapCtrl(){
+	console.log("MapCtrl is loading.");
+};
 app.directive('ecom', ecom);
 
 function ecom(){
@@ -91,7 +112,7 @@ function ecom(){
 
 		/* Ecommerce button animation - View 1 to View 2 */
 		$scope.grabSome = function(){
-			console.log('GrabSome is loading.')
+			//console.log('GrabSome is loading.')
 			var view1 = document.querySelector("#view-1");
 			
 			view1.style.opacity="0";
@@ -124,16 +145,17 @@ function ecom(){
 
 		/* Address Form - View 3 to View 4 */
 		$scope.addrInput = function(){
-			console.log("addrInput is loading");
+			//console.log("addrInput is loading");
 			var view2 = document.querySelector('#view-2');
 			var view3 = document.querySelector('#view-3');
 			var view4 = document.querySelector('#view-4');
 			view3.style.right="-100%";
 			view2.style.right="-100%";
 			view3.style.opacity="0";
-			view2.style.opacity="0";
-			view4.style.right="0%";
+			view4.style.right="100%";
 		};
+
+		$scope.form
 	}
 	/* Load Template */
 	return directive;
@@ -175,9 +197,25 @@ function instagram(){
 		  ]
 	};
 
-	/* Load Template */
+	/* Load Directive */
 	return directive;
 }
+app.directive('google-map', googleMap);
+
+function googleMap(){
+	var directive = {
+		link: linkFunc,
+		//templateUrl: '../assets/views/_partials/google-map.html',
+		$scope: {}
+	}
+	/* DOM Animation */
+	function linkFunc($scope){
+		console.log('Google Map Directive Loading');
+	};
+
+	/* Load Directive */
+	return directive;
+};
 app.directive('navigation', navigation);
 
 function navigation(){
