@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('index');
 });
+
+
+Route::post('/submit-payment', 'BillingController@submitPayment');

@@ -1,15 +1,4 @@
 
-/* Directory
-| 1.0 Base
-| 2.0 Buttons
-| 3.0 Figures
-| 4.0 Grids
-| 5.0 Typography
-| 6.0 Reset
-| 7.0 Instafeed
-| 8.0 Maps
-*/
-
 // Modules and Variables
 @import "partials/base";
 
@@ -24,4 +13,6 @@
 @import "partials/ecom";
 @import "partials/maps";
 
+//Vendor 
+@import "vendor/bootstrap/bootstrap";
 

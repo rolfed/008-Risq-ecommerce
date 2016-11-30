@@ -27,7 +27,7 @@ function ecom(){
 			}, 1000);
 
 			var view2 = document.querySelector('#view-2');
-				console.log(view2);
+				//console.log(view2);
 				view2.style.right="0%";
 			};
 

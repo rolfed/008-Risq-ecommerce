@@ -51,7 +51,7 @@ function EcomCtrl($scope){
 		var sum = 0;
 
 		// Add/Sub Price
-		console.log($scope.products[0]);
+		//console.log($scope.products[0]);
 		sum += parseInt($scope.products[productIndex].qty * productPrice, 10);
 
 		// Return total

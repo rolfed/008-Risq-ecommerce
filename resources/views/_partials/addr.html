@@ -1,0 +1,9 @@
+<div class="row" ng-controller="MapCtrl">
+	<div ng-repeat="address in map.markers" class="hidden-xs-down">
+	  <div class="col-sm-4 col-md-3 location-space">
+	    <h4 class="address-title">{{ address.title }}</h4>
+	    <p class="location-info">{{ address.streetAddress }} </p>
+	    <p class="location-info">{{ address.city }}, {{ address.state}} {{ address.zip }}</p>
+	  </div>
+	</div>
+</div><!-- /.row -->

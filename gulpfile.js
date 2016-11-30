@@ -37,6 +37,13 @@ ElixirGroup.register('vendor', function(){
 		mix.wiredep('php', {
 			src: 'index.blade.php'
 		}, depOptions);
+
+        mix.copy(
+            'public/bower_components/bootstrap-sass/assets/stylesheets',
+            'resources/assets/sass/vendor/bootstrap'
+        );
+
+
 	});
 });
 
