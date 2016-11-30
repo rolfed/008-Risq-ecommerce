@@ -35,7 +35,6 @@
 
             <ecom></ecom>
 
-            <div class="space-lg"></div> 
             
             <uimap></uimap>
 
@@ -43,27 +42,11 @@
 
             <address></address>
 
-        </div>
+            <div class="space-lg"></div>
 
-         <footer class="footer-container">
-            <div class="container-fluid">
-                <div class="row  hidden-sm">
-                    <div class="col-sm-12 text-center hidden-xs">
-                        <button ng-click="viewMore();" class="btn-ecom-sm" id="view-more-btn">View More</button>
-                    </div>
-                </div><!-- /.row -->
-                <div class="row">
-                  <div class="col-sm-12 text-center">
-                    <a href="#top" id="bottom"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a>
-                  </div>
-                  <div class="col-sm-4 col-sm-offset-4 text-center social-icons">
-                      <a href="https://www.instagram.com/risqenergy/" class="ssk ssk-icon ssk-instagram" title="Instagram"></a>
-                      <a href="https://www.facebook.com/risqenergy/" class="ssk ssk-icon ssk-facebook" title="Facebook"></a>
-                      <a href="mailto:info@risqenergy.com?subject=Hello" class="ssk ssk-icon ssk-email" title="Email Risq"></a>
-                  </div>
-                </div><!-- /.row -->
-            </div>
-        </footer>
+            <ftr></ftr>
+
+        </div>
 
         <!-- bower:js -->
         <script src='{{ asset('/bower_components/jquery/dist/jquery.js') }}'></script>
@@ -83,6 +66,8 @@
         <script src='{{ asset('/bower_components/instafeed/instafeed.js') }}'></script>
         <!-- App JS -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+
+
 
         <!-- Adobe Typekit -->
         <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>

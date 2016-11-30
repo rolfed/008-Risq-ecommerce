@@ -7,30 +7,17 @@
 
       <div class="col-sm-12">
       <!-- Google maps -->
-         <ui-gmap-google-map 
-            center='map.center' 
-            zoom='map.zoom' 
-            coords="marker.coords" 
-            options="marker.options" 
-            events="marker.events" 
-            idkey="marker.id">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
 
-              <ui-gmap-marker 
-                  ng-repeat="m in map.markers" 
-                  coords="m.coords" 
-                  icon="m.icon" 
-                  idkey="m.id"
-                  click="markerClick"
-                  labelContent="m.label"
-                  >
+          <ui-gmap-marker 
+            ng-repeat="m in map.markers" 
+            coords="m.coords" 
+            icon="m.icon" 
+            idkey="m.id"
+            click="markerClick"
+          >
                     
-              </ui-gmap-marker>
-              <ui-gmap-polyline 
-                  path="map.polyline.path" 
-                  stroke="map.polyline.stroke" 
-                  visible='map.polyline.visible' 
-                  geodesic='map.polyline.geodesic' 
-                  fit="false"></ui-gmap-polyline>
+        </ui-gmap-marker>
           
         </ui-gmap-google-map>
       <!-- Draw Markers -->

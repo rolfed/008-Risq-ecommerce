@@ -8,7 +8,7 @@ function uiMap(){
 	}
 	/* DOM Animation */
 	function linkFunc($scope){
-		console.log('Google Map Directive Loading');
+		//console.log('Google Map Directive Loading');
 
 		$scope.markerClick = function(marker, x, y){
 			console.log("Marker Clicked");
