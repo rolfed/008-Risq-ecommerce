@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Stripe\Charge;
+use Stripe\Customer;
+use Stripe\Stripe;
+
+
 
 class BillingController extends Controller
 {
