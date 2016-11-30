@@ -16,16 +16,15 @@ function address(){
 			var el = document.getElementById('address-wrapper');
 			var height = el.offsetHeight;
 		
-			if(height < 2051){
+			if(height < 2049){
 				var newHeight = height + 215;
 				el.style.height = newHeight + 'px';
 
-			} 
+		    } 
 
-			
-		};
+		}
 	}
 
 	/* Load Directive */
 	return directive;
-}
+}; 
