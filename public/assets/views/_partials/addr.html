@@ -1,4 +1,4 @@
-<div class="row" ng-controller="MapCtrl">
+<div class="row" ng-controller="MapCtrl" id="address-wrapper">
 	<div ng-repeat="address in map.markers" class="hidden-xs-down">
 	  <div class="col-sm-4 col-md-3 location-space">
 	    <h4 class="address-title">{{ address.title }}</h4>
@@ -7,3 +7,9 @@
 	  </div>
 	</div>
 </div><!-- /.row -->
+<div class="space"></div>
+<div class="row">
+	<div class="col-sm-12 text-center bg-orange-sm">
+		<button ng-click="viewMore();" class="btn-ecom-sm" id="view-more-btn">View More</button>
+	</div>
+</div>

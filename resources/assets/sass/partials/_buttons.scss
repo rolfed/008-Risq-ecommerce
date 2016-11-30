@@ -23,9 +23,27 @@ a.showHideRecipe {
 	color: $black;
 	// margin-top: 30px;
 }
-.btn-ecom:hover {
+.btn-ecom-sm {
+	text-transform: uppercase;
+	border: solid 5px $white;
+	background: rgba($white, 0.65);
+	padding: 12.5px 10.5px 3.5px;
+	font-family: "eloquent-jf-small-caps-pro"!important; 
+	font-size: 25px;
+	color: $black;
+	// margin-top: 30px;
+}
+.btn-ecom,
+.btn-ecom-sm {
+	-webkit-transition: 500ms ease;
+	transition: 500ms ease;
+}
+.btn-ecom:hover,
+.btn-ecom-sm:hover {
 	color: $white !important;
 	text-decoration: none !important;
+	-webkit-transition: 500ms ease;
+	transition: 500ms ease;
 }
 .btn-qty-ecom {
 	font-size: 20px;
