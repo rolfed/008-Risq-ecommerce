@@ -11,6 +11,12 @@
         <meta name="description" content="Risq Energy - Drink It - Mix It - Share It. Follow Risq on Instagram @risqenergy and Facebook www.facebook.com/risqenergy. Contact Risq at info@risqeneryg.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- CSRF Token -->
+        <meta content="ie=edge" http-equiv="x-ua-compatible">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+            <meta name="csrf-token" content="{{ csrf_token() }}">
+        </meta>
+
         <!-- bower:css -->
         <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
         <!-- endbower -->
@@ -33,7 +39,7 @@
 
             <div class="space-lg"></div> 
 
-            <ecom></ecom>
+            <ecom data-csrf-token="{{ csrf_token() }}"></ecom>
 
             <div class="space-lg"></div>
             
@@ -46,9 +52,11 @@
             <div class="space-lg"></div>
 
             <ftr></ftr>
-
         </div>
 
+        <!-- Include Stripe -->
+        <script type="text/javascript" src="https://js.stripe.com/v2/" async></script>
+        
         <!-- bower:js -->
         <script src='{{ asset('/bower_components/jquery/dist/jquery.js') }}'></script>
         <script src='{{ asset('/bower_components/angular/angular.js') }}'></script>
@@ -63,54 +71,21 @@
         <script src='{{ asset('/bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js') }}'></script>
         <script src='{{ asset('/bower_components/js-rich-marker/src/richmarker.js') }}'></script>
         <script src='{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}'></script>
+        <script src='{{ asset('/bower_components/angular-stripe/release/angular-stripe.js') }}'></script>
         <!-- endbower -->
         <script src='{{ asset('/bower_components/instafeed/instafeed.js') }}'></script>
         
         <!-- App JS -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
-
-        <!-- Include Stripe -->
-        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
+        
         <script type="text/javascript">
             // This identifies your website in the createToken call below
-            Stripe.setPublishableKey('{!! env('STRIPE_PK') !!}');
-
-            $(function($) {
-
-                // Diable the submit button to prevent repeated clicks
-                $('#payment-form').submit(function(event) {
-                    formInstance.submitEvent.preventDefault();
-                    return false;
-
-                    Stripe.card.createToken($form, stripeResponseHandler);
-
-                    // Prevent the form from submitting with the default action
-                    return false;
-                });
-            });
-
-            function stripeResponseHandler(status, response) {
-                var $form = $('#payment-form');
-
-                if(response.error) {
-                    // Show the errors on the form
-                    $form.find('.payment-errors').text(response.error.message);
-                    $form.find('.payment-errors').addClass('alert alert-danger');
-                    $form.find('#submitBtn').button('reset');
-                } else {
-                    // Response contains id and card, which contains additional card details
-                    var token = response.id;
-                    // Insert the token into the form so it gets submitted to the server
-                    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-                    // and submit
-                    $form.get(0).submit();
-                }
-            };
+            //Stripe.setPublishableKey('{{ env('STRIPE_PK') }}');
         </script>
 
-
-
+        <script type="text/javascript">
+              app.constant("CSRF_TOKEN", '{{ csrf_token() }}')
+        </script>
 
         <!-- Adobe Typekit -->
         <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>
@@ -129,9 +104,6 @@
                 resolution: 'standard_resolution',
                 limit: 8
             });
-
-
-
 
             feed.run();
         </script>

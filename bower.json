@@ -21,6 +21,7 @@
     "social-share-kit": "https://github.com/darklow/social-share-kit.git#^1.0.13",
     "bootstrap-sass": "^3.3.7",
     "angular-google-maps": "^2.4.0",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "angular-stripe": "https://github.com/bendrucker/angular-stripe.git#^4.2.12"
   }
 }

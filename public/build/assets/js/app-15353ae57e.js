@@ -1,8 +1,13 @@
 'use strict'
 var app = angular.module('risq', [
 	'ngRoute',
-	'uiGmapgoogle-maps'
-]);
+	'uiGmapgoogle-maps',
+	'angular-stripe'
+])
+.config(function (stripeProvider) {
+    stripeProvider.setPublishableKey("pk_test_bUH3O6nDbsq0olDgE7h9L2fv");
+ });
+
 
 
 
@@ -16,28 +21,23 @@ function EcomCtrl($scope){
 		$scope.products = [
 			{
 			"title": "Starter Pack",
-			"qty": 0,
-			"price": 24.00
+			"qty": "0"
 			},
 			{
 			"title" : "Strawberry Kiwi",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Peach Mango",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Watermelon",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Green Apple",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			}
 		 ]
 
@@ -733,10 +733,13 @@ function address(){
 app.directive('ecom', ecom);
 
 function ecom(){
+
 	var directive = {
 		link: linkFunc,
 		templateUrl: '../assets/views/_partials/ecom.html',
-		$scope: {}
+		scope: {
+			csrfToken : '@'
+		}
 	}
 
 	/* DOM Animation */
@@ -746,6 +749,30 @@ function ecom(){
 	the products have shipped view */
 	
 	function linkFunc($scope) {
+	
+                var $form = $('#payment-form');
+                console.log($form);
+                function stripeResponseHandler(status, response) {
+                    console.log("response");
+                    if (response.error) {
+                        $form.find('.payment-errors').text(response.error.message);
+                        $form.find('#submit-form').prop('disabled', false);
+                    } else {
+                        var token = response.id;
+                        $form.append($('<input type="hidden" name="stripeToken">').val(token));
+                        $form.find('#submit-form').prop('disabled', false);
+                        //$form.get(0).submit();
+
+                    }
+                };
+
+                $form.submit(function(event) {
+                	console.log("This shit fires!")
+                    $form.find('#submit-form').prop('disabled', true);
+                    Stripe.card.createToken($form, stripeResponseHandler);
+                    return false;
+                });
+      
 
 
 		/* Ecommerce button animation - View 1 to View 2 */
@@ -769,15 +796,15 @@ function ecom(){
 		$scope.addToCart = function(){
 
 			/* Check if the cart has items added */
-			for (var i = 0; i < $scope.products.length; i++) {
+			//for (var i = 0; i < $scope.products.length; i++) {
 				
 				/* Convert qty to integer */
-				var qty = parseInt($scope.products[i].qty, 10);
-				console.log($scope);
+				//var qty = parseInt($scope.products[i].qty, 10);
+				//console.log($scope);
 
 				/* Check if qty is great than zero */
 				//if (qty > 0) {
-					console.log(qty);
+					//console.log(qty);
 					var view2 = document.querySelector('#view-2');
 					var view3 = document.querySelector('#view-3');
 					var bg = document.querySelector('#ecom-image');
@@ -795,7 +822,7 @@ function ecom(){
 				//} else {
 					//console.log("Please add products!");					
 				//};
-			};
+			//};
 		};
 
 		/* Address Form - View 3 to View 4 */

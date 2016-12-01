@@ -99,25 +99,29 @@
     <div class="col-sm-12 bg-black" id="view-4">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">Where Should We Ship</h1>
-       <form id="payment-form" role="form" method="post" id="payment-form">
+       <form id="payment-form" role="form" method="post" action="/submit-payment">
+    
+          <!-- csrf_token -->
+          <input type="hidden" name="_token" value="{{ csrfToken }}">
+
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" placeholder="First Name" required>
+            <input type="text" class="ecom-form" name="First Name" placeholder="First Name" required>
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" placeholder="Last Name" required>
+            <input type="text" class="ecom-form" name="Last Name" placeholder="Last Name" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" placeholder="Address Line 1" required>
+            <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" placeholder="Address Line 2">
+            <input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" placeholder="City" required>
+            <input type="text" class="ecom-form" name="City" placeholder="City" required>
           </div>
           <div class="col-sm-2">
             <!-- <input type="text" class="ecom-form" placeholder="State" required> -->
-            <select class="ecom-form" name="expiry-month" id="expiry-month">
+            <select class="ecom-form" name="state" id="expiry-month">
                 <option>State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -173,18 +177,16 @@
               </select>
           </div>  
           <div class="col-sm-4">
-            <input type="text" class="ecom-form" placeholder="Zip" required>
+            <input type="text" class="ecom-form" name="zip" placeholder="Zip" required>
           </div>
           <div class="col-sm-12">
-            <input type="email" class="ecom-form" placeholder="Email" required>
+            <input type="email" class="ecom-form" name="email" placeholder="Email" required>
           </div> 
           <div class="col-sm-6 ecom-btn-padding">
             <!-- <button class="uppercase btn-underline">Use this address</button> -->
-            <button class="btn-ecom" submit="submitPayment();">Submit</button>
+            <button class="btn-ecom" type="submit" id="submit-form" >Make Payment</button>
           </div> 
-          <div class="col-sm-6 hidden" id="form-error">
-              <h4 class="error">Please fill out all the required fields.</h4>
-          </div>
+          <div class="payment-errors"></div>
        </form>
       </div> 
     </div><!-- /.View-4 -->

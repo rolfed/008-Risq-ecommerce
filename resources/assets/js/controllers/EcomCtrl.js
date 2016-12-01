@@ -7,28 +7,23 @@ function EcomCtrl($scope){
 		$scope.products = [
 			{
 			"title": "Starter Pack",
-			"qty": 0,
-			"price": 24.00
+			"qty": "0"
 			},
 			{
 			"title" : "Strawberry Kiwi",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Peach Mango",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Watermelon",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			},
 			{
 			"title" : "Green Apple",
-			"qty" : 0,
-			"price": 3.00
+			"qty" : "0"
 			}
 		 ]
 

@@ -12,12 +12,6 @@ use Stripe\Stripe;
 class BillingController extends Controller
 {
   
-	public function getOrder() {
-		return view('_partials.ecom')
-	}
-
-
-
 	public function submitPayment(Request $request) {
 
 		dd($request->all());
