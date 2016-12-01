@@ -7,23 +7,28 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Authenticatable, CanResetPassword;
 
     /**
-     * The attributes that are mass assignable.
+     *  The database table used by the model.
      *
-     * @var array
+     *  @var sting
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+
+    protected $table = 'users';
 
     /**
-     * The attributes that should be hidden for arrays.
+     *  The attributes that are mass assignable.
      *
-     * @var array
+     *  @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+
+    protected $fillable = ['first_name', 'last_name', 'email', 'stripe_customer_id'];
+
+    /**
+     *  The attribute excluded from the model's JSON form.
+     *  @var array
+     */
+
+    protected $hidden = [];
 }

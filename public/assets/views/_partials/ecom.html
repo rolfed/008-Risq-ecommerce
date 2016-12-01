@@ -1,46 +1,3 @@
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-<!-- Fetch Stripe Key from .env file -->
-<script type="text/javascript">
-  Stripe.setPublishableKey("{{ env('STRIPE_KEY') }}"); 
-</script>
-
-<script type="text/javascript">
-  $(function(){
-
-    var $form = $('#payment-form');
-
-    //console.log($form);
-
-    function stripeResponseHandler(status, response) {
-      //If paymen fails disable button
-      if (response.error) {
-        
-        //Add response message if payment error
-        $form.find('.payment-error').text(response.error.message);
-
-        //Disable Btn 
-        $form.find('#submit-form').prop('disable', false);
-      } else {
-
-        // Save response from Stripe, Token to var token
-        var token = response.id;
-
-        //Save Token from Stripe
-        $form.append($('<input type="hidden" name="stripeToken">').val(token));
-
-        $form.find('#submit-form').prep('disable', false);
-
-      }
-    }
-
-
-
-  });
-
-</script>
-
-
 <div ng-controller="EcomCtrl" class="ecom-bg-image">
 <!-- Mobile Button Ecommerce -->
 <div class="row">
@@ -117,9 +74,9 @@
 
 				<div class="ecom-border">
 					<ul class="ecom-qty-wrapper">
-						<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
-						<li><p class="ecom-total-qty">{{product.qty}}</p></li>
 						<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="decreaseItemCount(product)">-</a></div></li>
+						<li><p class="ecom-total-qty">{{product.qty}}</p></li>
+            <li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
 						<li><p class="ecom-total-qty" ng-bind="sumCalc({{$index}})"></p></li>
 					</ul>
 				</div>
@@ -141,7 +98,7 @@
     <div class="col-sm-12 bg-black" id="view-4">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">Where Should We Ship</h1>
-       <form id="payment-form" role="form" method="post" action="">
+       <form id="payment-form" role="form" method="post" action="postOrder()">
           <div class="col-sm-6">
             <input type="text" class="ecom-form" placeholder="First Name" required>
           </div>

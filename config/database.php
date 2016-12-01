@@ -53,17 +53,14 @@ return [
         ],
 
         'mysql' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('risqenergy', 'forge'),
-            'username' => env('root', 'forge'),
-            'password' => env('H@stl316', ''),
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'driver'    =>  'mysql',
+            'host'      =>  '127.0.0.1',
+            'database'  =>  'risqenergy',
+            'username'  =>  'root',
+            'password'  =>  'H@stl316',
+            'charset'   =>  'utf8',
+            'collation' =>  'utf8_unicode_ci',
+            'prefix'    => ''
         ],
 
         'pgsql' => [

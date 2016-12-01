@@ -64,8 +64,50 @@
         <script src='{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}'></script>
         <!-- endbower -->
         <script src='{{ asset('/bower_components/instafeed/instafeed.js') }}'></script>
+        
         <!-- App JS -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+
+        <!-- Include Stripe -->
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+        <script type="text/javascript">
+            // This identifies your website in the createToken call below
+            Stripe.setPublishableKey('{!! env('STRIPE_PK') !!}');
+
+            $(function($) {
+
+                // Diable the submit button to prevent repeated clicks
+                $('#payment-form').submit(function(event) {
+                    formInstance.submitEvent.preventDefault();
+                    return false;
+
+                    Stripe.card.createToken($form, stripeResponseHandler);
+
+                    // Prevent the form from submitting with the default action
+                    return false;
+                });
+            });
+
+            function stripeResponseHandler(status, response) {
+                var $form = $('#payment-form');
+
+                if(response.error) {
+                    // Show the errors on the form
+                    $form.find('.payment-errors').text(response.error.message);
+                    $form.find('.payment-errors').addClass('alert alert-danger');
+                    $form.find('#submitBtn').button('reset');
+                } else {
+                    // Response contains id and card, which contains additional card details
+                    var token = response.id;
+                    // Insert the token into the form so it gets submitted to the server
+                    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                    // and submit
+                    $form.get(0).submit();
+                }
+            };
+        </script>
+
 
 
 
@@ -86,6 +128,9 @@
                 resolution: 'standard_resolution',
                 limit: 8
             });
+
+
+
 
             feed.run();
         </script>
