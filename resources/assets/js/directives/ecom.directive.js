@@ -15,6 +15,7 @@ function ecom(){
 	
 	function linkFunc($scope) {
 
+
 		/* Ecommerce button animation - View 1 to View 2 */
 		$scope.grabSome = function(){
 			//console.log('GrabSome is loading.')
@@ -31,21 +32,38 @@ function ecom(){
 				view2.style.right="0%";
 			};
 
+
 		/* AddToCart button animation - View 2 to View 3*/	
 		$scope.addToCart = function(){
-			var view2 = document.querySelector('#view-2');
-			var view3 = document.querySelector('#view-3');
-			var bg = document.querySelector('#ecom-image');
-			
-			setTimeout(function(){ 
-		 		bg.className = "ecom-bg-change-background";
-			}, 100);
-			
-			view3.style.right="0%";
-			
-			setTimeout(function(){ 
-				view2.style.right="-50%";
-			}, 100);
+
+			/* Check if the cart has items added */
+			for (var i = 0; i < $scope.products.length; i++) {
+				
+				/* Convert qty to integer */
+				var qty = parseInt($scope.products[i].qty, 10);
+				console.log($scope);
+
+				/* Check if qty is great than zero */
+				//if (qty > 0) {
+					console.log(qty);
+					var view2 = document.querySelector('#view-2');
+					var view3 = document.querySelector('#view-3');
+					var bg = document.querySelector('#ecom-image');
+					
+					setTimeout(function(){ 
+				 		bg.className = "ecom-bg-change-background";
+					}, 100);
+					
+					view3.style.right="0%";
+					
+					setTimeout(function(){ 
+						view2.style.right="-50%";
+					}, 100);
+					
+				//} else {
+					//console.log("Please add products!");					
+				//};
+			};
 		};
 
 		/* Address Form - View 3 to View 4 */
@@ -60,8 +78,7 @@ function ecom(){
 			view4.style.right="100%";
 		};
 
-		$scope.form
-	}
+	};
 	/* Load Template */
 	return directive;
 };

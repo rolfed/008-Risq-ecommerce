@@ -16,23 +16,28 @@ function EcomCtrl($scope){
 		$scope.products = [
 			{
 			"title": "Starter Pack",
-			"qty": "0",
+			"qty": 0,
+			"price": 24.00
 			},
 			{
 			"title" : "Strawberry Kiwi",
-			"qty" : "0",
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Peach Mango",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Watermelon",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Green Apple",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			}
 		 ]
 
@@ -44,7 +49,11 @@ function EcomCtrl($scope){
 
 	/* Increase Item Count */
 	$scope.increaseItemCount = function(product){
+		console.log(product.qty);
 		product.qty++;
+
+		/* Update products object */
+		$scope.products.push({ })
 	};
 
 	/* Decrease Item Count*/
@@ -68,6 +77,18 @@ function EcomCtrl($scope){
 
 	}
 
+	/* Add up product total cost */
+	$scope.subTotal = function(){
+		//console.log('Subtotal function is loading');
+		var sum = 0;
+
+		angular.forEach($scope.products, function(product, index){
+			sum += parseInt(product.qty * productPrice, 10);
+		})
+
+		return "$" + sum + ".00";
+	};
+
 	/* Add up total cost */
 	$scope.totalCalc = function(){
 	    var sum = 0;
@@ -83,6 +104,11 @@ function EcomCtrl($scope){
 	    return "$" + sumPlusTax + shipping;
 	 };
 };
+
+
+
+
+
 app.controller('GlobalCtrl', GlobalCtrl);
 
 function GlobalCtrl(){
@@ -721,6 +747,7 @@ function ecom(){
 	
 	function linkFunc($scope) {
 
+
 		/* Ecommerce button animation - View 1 to View 2 */
 		$scope.grabSome = function(){
 			//console.log('GrabSome is loading.')
@@ -737,21 +764,38 @@ function ecom(){
 				view2.style.right="0%";
 			};
 
+
 		/* AddToCart button animation - View 2 to View 3*/	
 		$scope.addToCart = function(){
-			var view2 = document.querySelector('#view-2');
-			var view3 = document.querySelector('#view-3');
-			var bg = document.querySelector('#ecom-image');
-			
-			setTimeout(function(){ 
-		 		bg.className = "ecom-bg-change-background";
-			}, 100);
-			
-			view3.style.right="0%";
-			
-			setTimeout(function(){ 
-				view2.style.right="-50%";
-			}, 100);
+
+			/* Check if the cart has items added */
+			for (var i = 0; i < $scope.products.length; i++) {
+				
+				/* Convert qty to integer */
+				var qty = parseInt($scope.products[i].qty, 10);
+				console.log($scope);
+
+				/* Check if qty is great than zero */
+				//if (qty > 0) {
+					console.log(qty);
+					var view2 = document.querySelector('#view-2');
+					var view3 = document.querySelector('#view-3');
+					var bg = document.querySelector('#ecom-image');
+					
+					setTimeout(function(){ 
+				 		bg.className = "ecom-bg-change-background";
+					}, 100);
+					
+					view3.style.right="0%";
+					
+					setTimeout(function(){ 
+						view2.style.right="-50%";
+					}, 100);
+					
+				//} else {
+					//console.log("Please add products!");					
+				//};
+			};
 		};
 
 		/* Address Form - View 3 to View 4 */
@@ -766,8 +810,7 @@ function ecom(){
 			view4.style.right="100%";
 		};
 
-		$scope.form
-	}
+	};
 	/* Load Template */
 	return directive;
 };
@@ -902,6 +945,13 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/', {
     templateUrl: '../assets/views/homePage.html',
     controller: 'GlobalCtrl',
+    controllerAs: 'vm'
+  })
+
+  // Mobile Ecommerce 
+  .when('/', {
+    templateUrl: '../assets/views/mobileEcom.html',
+    controller: 'EcomCtrl',
     controllerAs: 'vm'
   })
 

@@ -7,23 +7,28 @@ function EcomCtrl($scope){
 		$scope.products = [
 			{
 			"title": "Starter Pack",
-			"qty": "0",
+			"qty": 0,
+			"price": 24.00
 			},
 			{
 			"title" : "Strawberry Kiwi",
-			"qty" : "0",
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Peach Mango",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Watermelon",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			},
 			{
 			"title" : "Green Apple",
-			"qty" : "0"
+			"qty" : 0,
+			"price": 3.00
 			}
 		 ]
 
@@ -35,7 +40,11 @@ function EcomCtrl($scope){
 
 	/* Increase Item Count */
 	$scope.increaseItemCount = function(product){
+		console.log(product.qty);
 		product.qty++;
+
+		/* Update products object */
+		$scope.products.push({ })
 	};
 
 	/* Decrease Item Count*/
@@ -59,6 +68,18 @@ function EcomCtrl($scope){
 
 	}
 
+	/* Add up product total cost */
+	$scope.subTotal = function(){
+		//console.log('Subtotal function is loading');
+		var sum = 0;
+
+		angular.forEach($scope.products, function(product, index){
+			sum += parseInt(product.qty * productPrice, 10);
+		})
+
+		return "$" + sum + ".00";
+	};
+
 	/* Add up total cost */
 	$scope.totalCalc = function(){
 	    var sum = 0;
@@ -74,3 +95,7 @@ function EcomCtrl($scope){
 	    return "$" + sumPlusTax + shipping;
 	 };
 };
+
+
+
+

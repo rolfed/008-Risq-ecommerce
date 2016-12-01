@@ -39,7 +39,7 @@
 		<table class="ecom-table">
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Sub Total</h4></td>
-				<td class="text-right"><h4 class="white sub-total">{{product.qty}}</h4></td>
+				<td class="text-right"><h4 class="white sub-total" ng-bind="subTotal();"></h4></td>
 			</tr>
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Sales Tax</h4></td>
@@ -56,7 +56,7 @@
 		</table>
 		<div class="btn-checkout-wrapper">
 			<div class="text-center ecom-wrapper">
-				<a class="btn-ecom" ng-click="addrInput();">Purchase</a>
+				<a class="btn-ecom" ng-click="addrInput();">Submit</a>
 			</div> 
 		</div>
 
@@ -88,7 +88,8 @@
 	<div class="col-sm-6">
 		<div class="btn-addToCart-wrapper">
 			<div class="text-center ecom-wrapper">
-				<button class="btn-ecom" href="" ng-click="addToCart()">Add to cart</button>
+        <span ng-bind="checkCart()"></span>
+				<button class="btn-ecom" href="" ng-click="addToCart()" id="addToCartBtn">Add to cart</button>
 			</div> 
 		</div> 
 	</div>
@@ -98,7 +99,7 @@
     <div class="col-sm-12 bg-black" id="view-4">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">Where Should We Ship</h1>
-       <form id="payment-form" role="form" method="post" action="postOrder()">
+       <form id="payment-form" role="form" method="post" id="payment-form">
           <div class="col-sm-6">
             <input type="text" class="ecom-form" placeholder="First Name" required>
           </div>
@@ -179,7 +180,7 @@
           </div> 
           <div class="col-sm-6 ecom-btn-padding">
             <!-- <button class="uppercase btn-underline">Use this address</button> -->
-            <button class="btn-ecom" ng-click="">Checkout</button>
+            <button class="btn-ecom" submit="submitPayment();">Submit</button>
           </div> 
           <div class="col-sm-6 hidden" id="form-error">
               <h4 class="error">Please fill out all the required fields.</h4>
@@ -188,7 +189,7 @@
       </div> 
     </div><!-- /.View-4 -->
 
-    <!-- View 5 -->  
+    <!-- View 5 NOT USING -->  
     <div class="col-sm-12 bg-black hidden" id="view-5">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">What is billing information?</h1>

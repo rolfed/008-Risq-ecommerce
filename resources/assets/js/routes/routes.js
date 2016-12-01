@@ -9,6 +9,13 @@ app.config(['$routeProvider', function($routeProvider) {
     controllerAs: 'vm'
   })
 
+  // Mobile Ecommerce 
+  .when('/', {
+    templateUrl: '../assets/views/mobileEcom.html',
+    controller: 'EcomCtrl',
+    controllerAs: 'vm'
+  })
+
   // 404
   .otherwise('/404', {
     templateUrl: '../assets/views/404.html',
