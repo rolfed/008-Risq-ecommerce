@@ -33,13 +33,14 @@ function EcomCtrl($scope){
 
 	$scope.product = $scope.products;
 
+	$scope.totalSum = 0; 
+	$scope.shipping = 5.00; 
+	$scope.tax = 5.00;
+
 	/* Increase Item Count */
 	$scope.increaseItemCount = function(product){
 		console.log(product.qty);
 		product.qty++;
-
-		/* Update products object */
-		$scope.products.push({ })
 	};
 
 	/* Decrease Item Count*/
@@ -72,22 +73,27 @@ function EcomCtrl($scope){
 			sum += parseInt(product.qty * productPrice, 10);
 		})
 
+		$scope.totalSum = sum;
+
 		return "$" + sum + ".00";
 	};
 
 	/* Add up total cost */
 	$scope.totalCalc = function(){
-	    var sum = 0;
-	    var shipping = 5.00;
-	    var tax = 2.50;
 
-	    angular.forEach($scope.products, function(product, index){
-	      sum += parseInt(product.qty * productPrice, 10);
-	    });
+	    // angular.forEach($scope.products, function(product, index){
+	    //   sum += parseInt(product.qty * productPrice, 10);
+	    // });
 
-	    var sumPlusTax = sum + tax;
+	    $scope.objTotal = {
+	    	sum : $scope.totalSum,
+	    	shipping : $scope.shipping,
+	    	tax : $scope.tax
+	    };
 
-	    return "$" + sumPlusTax + shipping;
+	    var sumPlusTax = $scope.totalSum + $scope.tax;
+
+	    return "$" + (sumPlusTax + $scope.shipping);
 	 };
 };
 

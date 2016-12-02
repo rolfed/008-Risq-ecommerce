@@ -6,8 +6,10 @@ function ecom(){
 		link: linkFunc,
 		templateUrl: '../assets/views/_partials/ecom.html',
 		scope: {
-			csrfToken : '@'
-		}
+			csrfToken : '@',
+			objTotal : '@'
+		},
+		transclude: true,
 	}
 
 	/* DOM Animation */
@@ -17,29 +19,28 @@ function ecom(){
 	the products have shipped view */
 	
 	function linkFunc($scope) {
-	
-                var $form = $('#payment-form');
-                console.log($form);
-                function stripeResponseHandler(status, response) {
-                    console.log("response");
-                    if (response.error) {
-                        $form.find('.payment-errors').text(response.error.message);
-                        $form.find('#submit-form').prop('disabled', false);
-                    } else {
-                        var token = response.id;
-                        $form.append($('<input type="hidden" name="stripeToken">').val(token));
-                        $form.find('#submit-form').prop('disabled', false);
-                        //$form.get(0).submit();
+		
+		/* Stripe payment */
+        var $form = $('#payment-form');
+        console.log($form);
 
-                    }
-                };
+        function stripeResponseHandler(status, response) {
+            if (response.error) {
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('#submit-form').prop('disabled', false);
+            } else {
+                var token = response.id;
+                $form.append($('<input type="hidden" name="stripeToken">').val(token));
+                $form.find('#submit-form').prop('disabled', false);
+                $form.get(0).submit();
+            }
+        };
 
-                $form.submit(function(event) {
-                	console.log("This shit fires!")
-                    $form.find('#submit-form').prop('disabled', true);
-                    Stripe.card.createToken($form, stripeResponseHandler);
-                    return false;
-                });
+        $form.submit(function(event) {
+            $form.find('#submit-form').prop('disabled', true);
+            Stripe.card.createToken($form, stripeResponseHandler);
+            return false;  
+        });
       
 
 
@@ -94,7 +95,7 @@ function ecom(){
 		};
 
 		/* Address Form - View 3 to View 4 */
-		$scope.addrInput = function(){
+		$scope.checkout = function(){
 			//console.log("addrInput is loading");
 			var view2 = document.querySelector('#view-2');
 			var view3 = document.querySelector('#view-3');
@@ -102,8 +103,22 @@ function ecom(){
 			view3.style.right="-100%";
 			view2.style.right="-100%";
 			view3.style.opacity="0";
-			view4.style.right="100%";
+			view4.style.right="0";
 		};
+
+		/* Payment Form - View 4 to View 5 */
+		$scope.paymentInput = function(){
+			console.log('Add Payment Info')
+			var view2 = document.querySelector('#view-2');
+			var view4 = document.querySelector('#view-4');
+			var view5 = document.querySelector('#view-5');
+			view4.style.right="100%";
+			view4.classList.toggle('hidden');
+			view2.classList.toggle('hidden');
+
+			view5.style.left="100%";
+			
+		}
 
 	};
 	/* Load Template */

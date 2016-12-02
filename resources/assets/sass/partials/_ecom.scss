@@ -81,7 +81,7 @@
 	font-size: 40px;
 }
 .sub-total {
-	font-size: 55px;
+	font-size: 40px;
 }
 .ecom-col {
 	padding-right: 140px;
@@ -167,7 +167,8 @@ color: $black;
 	-ms-transition: 0.2s;
 	transition: 0.2s;
 }
-#view-3 {
+#view-3,
+#view-5 {
 	-webkit-transition: 0.60s;
 	-moz-transition: 0.60s;
 	-ms-transition: 0.60s;
@@ -187,9 +188,11 @@ color: $black;
 	right: 175%;
 	position: absolute;
 }
+#view-5 {
+	right: -200%;
+}
 #view-2,
 #view-3,
-#view-5,
 #view-6 {
 	right: 100%;
 	position: absolute;

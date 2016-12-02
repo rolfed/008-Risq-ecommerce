@@ -1,4 +1,4 @@
-<div ng-controller="EcomCtrl" class="ecom-bg-image">
+<div ng-controller="EcomCtrl" class="ecom-bg-image" >
 <!-- Mobile Button Ecommerce -->
 <div class="row">
 	<div class="col-sm-12 fadeOut">
@@ -43,11 +43,11 @@
 			</tr>
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Sales Tax</h4></td>
-				<td class="text-right"><h4 class="white sub-total">$2.50</h4></td>
+				<td class="text-right"><h4 class="white sub-total">{{ tax | currency:"$":0.00}}</h4></td>
 			</tr>  
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Shipping</h4></td>
-				<td class="text-right"><h4 class="white sub-total">$5.00</h4></td>
+				<td class="text-right"><h4 class="white sub-total">{{ shipping | currency:"$":0.00 }}</h4></td>
 			</tr> 
 			<tr class="ecom-table-total">
 				<td class="ecom-col"><h4 class="white sub-total uppercase">Total</h4></td>
@@ -56,7 +56,7 @@
 		</table>
 		<div class="btn-checkout-wrapper">
 			<div class="text-center ecom-wrapper">
-				<a class="btn-ecom" ng-click="addrInput();">Submit</a>
+				<a class="btn-ecom" ng-click="checkout();">Checkout</a>
 			</div> 
 		</div>
 
@@ -93,22 +93,25 @@
 			</div> 
 		</div> 
 	</div>
+</div>
 <!-- /.View 2 -->
 
-<!-- View 4 -->  
+<!-- View 4 --> 
+  <form id="payment-form" role="form" method="post" action="/submit-payment"> 
+    
     <div class="col-sm-12 bg-black" id="view-4">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">Where Should We Ship</h1>
-       <form id="payment-form" role="form" method="post" action="/submit-payment">
+       
     
           <!-- csrf_token -->
           <input type="hidden" name="_token" value="{{ csrfToken }}">
-
+          <input type="hidden" name="total" value="{{ objTotal }}">
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" name="First Name" placeholder="First Name" required>
+            <input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" name="Last Name" placeholder="Last Name" required>
+            <input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
           </div>
           <div class="col-sm-12">
             <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" required>
@@ -184,26 +187,25 @@
           </div> 
           <div class="col-sm-6 ecom-btn-padding">
             <!-- <button class="uppercase btn-underline">Use this address</button> -->
-            <button class="btn-ecom" type="submit" id="submit-form" >Make Payment</button>
+            <button class="btn-ecom" ng-click="paymentInput();">Payment</button>
           </div> 
           <div class="payment-errors"></div>
-       </form>
-      </div> 
+      </div><!--  /.ecom-qty-wrapper --> 
     </div><!-- /.View-4 -->
 
-    <!-- View 5 NOT USING -->  
-    <div class="col-sm-12 bg-black hidden" id="view-5">
+    <!-- View 5 -->  
+    <div class="col-sm-12 bg-black" id="view-5">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">What is billing information?</h1>
-       <form>
+
           <div class="col-sm-12">
             <input type="text" class="ecom-form" placeholder="Card Holder's Name" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" placeholder="Debit/Credit Card Number" required>
+            <input type="text" class="ecom-form" size="20" data-stripe="number" placeholder="Card Number" required>
           </div>
           <div class="col-sm-3">
-              <select class="ecom-form" name="expiry-month" id="expiry-month">
+              <select class="ecom-form" data-stripe="exp_month" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -220,7 +222,7 @@
               </select>
           </div>
           <div class="col-sm-3">
-              <select class="ecom-form" name="expiry-year">
+              <select class="ecom-form" data-stripe="exp_year" required>
                 <option value="16">2016</option>
                 <option value="17">2017</option>
                 <option value="18">2018</option>
@@ -235,22 +237,22 @@
               </select>
            </div>
            <div class="col-sm-3">
-              <input type="text" class="ecom-form" placeholder="CVC" required>
+              <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc" required>
            </div>
           
           <div class="col-sm-12">
             <div class="btn-checkout-wrapper">
               <div class="col-sm-6 col-12-no-padding-left">
-                <button class="uppercase btn-ecom">Purchase</button>
+                <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
               </div> 
               <div class="col-sm-6">
                     <h4 class="error">Please fill out all the required fields.</h4>
                 </div>    
             </div>
           </div>
-       </form>
       </div> 
     </div><!-- /.View-5 -->
+</form>
 
     <!-- View 6 -->
     <div class="col-sm-12 text-center hidden">

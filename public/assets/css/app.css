@@ -8246,7 +8246,7 @@ a.showHideRecipe {
 }
 
 .sub-total {
-  font-size: 55px;
+  font-size: 40px;
 }
 
 .ecom-col {
@@ -8344,7 +8344,8 @@ input#expiry-year {
   transition: 0.2s;
 }
 
-#view-3 {
+#view-3,
+#view-5 {
   -webkit-transition: 0.60s;
   transition: 0.60s;
 }
@@ -8359,9 +8360,12 @@ input#expiry-year {
   position: absolute;
 }
 
+#view-5 {
+  right: -200%;
+}
+
 #view-2,
 #view-3,
-#view-5,
 #view-6 {
   right: 100%;
   position: absolute;
