@@ -16,15 +16,17 @@ class BillingController extends Controller
 
 		\Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
-		$token = $request->_token;
+		$token = $request->stripeToken;
 
 		$total = json_decode($request->total, true);
 		$products = json_decode($request->products, true);
 		$timeStamp = date('d-m-Y');
 		$description = "";
-		$sum = $total["sum"] + $total["shipping"] + $total["tax"];
+		$price = ($total["sum"] * 100);
+		$sum = ($total["sum"] + $total["shipping"] + $total["tax"]) * 100;
 		$totalQty = 0;
-		
+
+
 		foreach ($products as $product) {
 			/* 
 			$product.title -- this returns the title
@@ -33,12 +35,13 @@ class BillingController extends Controller
 			$product.sumTotal -- this return the qty * price
 			*/
     		$description .= 
-    		$product["title"] . "\n" .
-    		$product["qty"] . "\n" .
-    		$product["price"] . "\n" .
-    		$product["sumTotal"];
+    		"ORDER: " .
+    		$product["qty"] 	. " " .
+    		$product["title"] 	. " Product ID: " . $product["productId"] . " ". " was ordered and the total payment was $" .
+    		($product["sumTotal"]/1) . ".\r\n \r\n";
 
-    		$totalQty += $product["qty"];
+    		// $product["qty"] . " " . $product["title"] . " was ordered at $" . $product["price"] . " each. " . "\n" . 
+    		// "The customer was charged $" . ($sum/100);
     	} 
 		
 
@@ -50,7 +53,7 @@ class BillingController extends Controller
 				"description" => $description
 			));
 
-			return response("You order was succesful!", 200) ->header('Content-type', 'text/plain'); 
+			return response("You order was succesful!", 200)->header('Content-type', 'text/plain'); 
 
 		} catch(\Stipe\Error\Card $e) {
 			// The Card has been declined

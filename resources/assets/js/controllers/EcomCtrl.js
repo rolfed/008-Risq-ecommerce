@@ -10,30 +10,35 @@ function EcomCtrl($scope){
 			"qty": "0",
 			"price" : "24",
 			"sumTotal" : "0",
+			"productId" : "prod_9fjULLhpSWdos0"
 			},
 			{
 			"title" : "Strawberry Kiwi",
 			"qty" : "0",
 			"price" : "3",
-			"sumTotal" : "0"
+			"sumTotal" : "0",
+			"productId" : "prod_9fjaGgoyKguDGk"
 			},
 			{
 			"title" : "Peach Mango",
 			"qty" : "0",
 			"price" : "3",
-			"sumTotal" : "0"
+			"sumTotal" : "0",
+			"productId" : "prod_9fjbTsLbAFNrZE"
 			},
 			{
 			"title" : "Watermelon",
 			"qty" : "0",
 			"price" : "3",
-			"sumTotal" : "0"
+			"sumTotal" : "0",
+			"productId" : "prod_9fjnXogq3IJUf6"
 			},
 			{
 			"title" : "Green Apple",
 			"qty" : "0",
 			"price" : "3",
-			"sumTotal" : "0"
+			"sumTotal" : "0",
+			"productId" : "prod_9fjocJbGILnh7q"
 			}
 		 ]
 
@@ -49,7 +54,7 @@ function EcomCtrl($scope){
 
 	/* Increase Item Count */
 	$scope.increaseItemCount = function(product){
-		console.log(product.qty);
+		//console.log(product.qty);
 		product.qty++;
 	};
 
@@ -62,6 +67,7 @@ function EcomCtrl($scope){
 
 	/* Sumation Calculator */
 	$scope.sumCalc = function(productIndex){
+
 		// Set Starting Price
 		var sum = 0;
 

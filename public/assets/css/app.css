@@ -8344,24 +8344,15 @@ input#expiry-year {
   transition: 0.2s;
 }
 
-#view-3,
-#view-5 {
-  -webkit-transition: 0.60s;
-  transition: 0.60s;
-}
-
 .bg-fadeIn {
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-#view-4 {
+#view-4,
+#view-5 {
   right: 175%;
   position: absolute;
-}
-
-#view-5 {
-  right: -200%;
 }
 
 #view-2,

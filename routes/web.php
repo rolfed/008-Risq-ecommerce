@@ -18,5 +18,6 @@ Route::get('/', function () {
 
 Route::post('/submit-payment', 'BillingController@submitPayment');
 
+
 //Route::get('order', ['as' => 'order', 'uses' => 'BillingController@getOrder']);
 //Route::post('order', ['as' => 'order-post', 'uses' => 'BillingController@postOrder']);

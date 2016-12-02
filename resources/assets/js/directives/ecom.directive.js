@@ -61,37 +61,36 @@ function ecom(){
 			};
 
 
+		// $scope.preventAddToCard = function(){
+		// 	console.log($scope.totalSum);
+		// 	//Prevent default 
+		// 	if($scope.totalSum === 0) {
+		// 		console.log('no products');
+		// 		addToCart().preventDefault();
+		// 	};
+
+		// 	return preventAddToCard();
+		// };
+
 		/* AddToCart button animation - View 2 to View 3*/	
-		$scope.addToCart = function(){
+		$scope.addToCart = function(preventAddToCard){
 
-			/* Check if the cart has items added */
-			//for (var i = 0; i < $scope.products.length; i++) {
-				
-				/* Convert qty to integer */
-				//var qty = parseInt($scope.products[i].qty, 10);
-				//console.log($scope);
+			//$scope.preventAddToCard();
 
-				/* Check if qty is great than zero */
-				//if (qty > 0) {
-					//console.log(qty);
-					var view2 = document.querySelector('#view-2');
-					var view3 = document.querySelector('#view-3');
-					var bg = document.querySelector('#ecom-image');
+			var view2 = document.querySelector('#view-2');
+			var view3 = document.querySelector('#view-3');
+			var bg = document.querySelector('#ecom-image');
+			
+			setTimeout(function(){ 
+		 		bg.className = "ecom-bg-change-background";
+			}, 100);
+			
+			view3.style.right="0%";
+			
+			setTimeout(function(){ 
+				view2.style.right="-50%";
+			}, 100);
 					
-					setTimeout(function(){ 
-				 		bg.className = "ecom-bg-change-background";
-					}, 100);
-					
-					view3.style.right="0%";
-					
-					setTimeout(function(){ 
-						view2.style.right="-50%";
-					}, 100);
-					
-				//} else {
-					//console.log("Please add products!");					
-				//};
-			//};
 		};
 
 		/* Address Form - View 3 to View 4 */
@@ -112,11 +111,16 @@ function ecom(){
 			var view2 = document.querySelector('#view-2');
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
-			view4.style.right="100%";
-			view4.classList.toggle('hidden');
+			view4.style.right="-100%";
+			view4.style.opacity="0";
+			
 			view2.classList.toggle('hidden');
 
-			view5.style.left="100%";
+			setTimeout(function(){ 
+				view4.classList.toggle('hidden');
+				view5.style.right="0";
+				//view5.classList.toggle('hidden');
+			}, 100);
 			
 		}
 
