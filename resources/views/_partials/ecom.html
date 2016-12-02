@@ -43,11 +43,11 @@
 			</tr>
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Sales Tax</h4></td>
-				<td class="text-right"><h4 class="white sub-total">{{ tax | currency:"$":0.00}}</h4></td>
+				<td class="text-right"><h4 class="white sub-total">{{ tax | currency}}</h4></td>
 			</tr>  
 			<tr>
 				<td class="ecom-col"><h4 class="white sub-total">Shipping</h4></td>
-				<td class="text-right"><h4 class="white sub-total">{{ shipping | currency:"$":0.00 }}</h4></td>
+				<td class="text-right"><h4 class="white sub-total">{{ shipping | currency}}</h4></td>
 			</tr> 
 			<tr class="ecom-table-total">
 				<td class="ecom-col"><h4 class="white sub-total uppercase">Total</h4></td>
@@ -107,6 +107,7 @@
           <!-- csrf_token -->
           <input type="hidden" name="_token" value="{{ csrfToken }}">
           <input type="hidden" name="total" value="{{ objTotal }}">
+          <input type="hidden" name="products" value="{{  }}">
           <div class="col-sm-6">
             <input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
           </div>
