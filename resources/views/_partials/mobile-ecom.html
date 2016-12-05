@@ -1,0 +1,159 @@
+
+<div ng-controller="EcomCtrl" data-csrf-token="{{ csrf_token() }}>
+<div class="space-lg"></div>
+<div class="row  bg-black" >
+	<div class="col-sm-12" >  
+		<div class="ecom-wrapper">
+			<div ng-repeat="product in products">
+				<h3 class="text-center white ecom-title">{{product.title}}</h3>
+				<div class="ecom-border">
+					<ul class="ecom-qty-wrapper">
+						<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="decreaseItemCount(product)">-</a></div></li>
+						<li><p class="ecom-total-qty">{{product.qty}}</p></li>
+	        			<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
+						<li><p class="ecom-total-qty" ng-bind="sumCalc({{$index}})"></p></li>
+					</ul>
+				</div>
+			</div>    
+		</div>
+	</div> 
+
+	<div class="space"></div>
+
+	<div class="col-md-12 text-center">
+		<h4 class="white sub-total">Sub Total <span class="white sub-total" ng-bind="subTotal();"> </span></h4>
+		<h4 class="white sub-total">Sales Tax <span class="white sub-total">{{ tax | currency}}</span></h4>
+		<h4 class="white sub-total">Shipping <span class="white sub-total" ng-bind="totalCalc();">{{ shipping | currency}}</span></h4>
+	</div>
+	<div class="space-lg"></div>
+</div><!--/.row-->
+<div class="space-lg"></div>
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="gray title text-center">Where Should <br>We Ship</h1>
+	</div>
+</div>
+<div class="space"></div>
+<div class="row bg-black">
+	<div class="col-sm-12">
+		<form id="payment-form" role="form" method="post" action="/submit-payment"> 
+			<!-- csrf_token -->
+			<input type="hidden" name="_token" value="{{ csrfToken }}">
+			<input type="hidden" name="total" value="{{ objTotal }}">
+			<input type="hidden" name="products" value="{{ products }}">
+			<div class="space"></div>
+			
+			<input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
+			<input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
+			<input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address_line1" required>
+			<input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address_line2">
+			<input type="text" class="ecom-form" name="City" placeholder="City" data-stripe="city" required>
+			<select class="ecom-form" name="state" id="state" data-stripe="address_state" required>
+                <option>State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+              <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="address_zip" required>
+			  <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>	
+			  
+			  <div class="space-lg"></div>	
+			  <h1 class="white title text-center">What is billing information?</h1>
+			  <input type="text" class="ecom-form" placeholder="Name on card" data-stripe="name" required>	
+			  <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number" required>
+			  <select class="ecom-form" data-stripe="exp_month" id="expiry-month" required="">
+                <option>Month</option>
+                <option value="01">Jan (01)</option>
+                <option value="02">Feb (02)</option>
+                <option value="03">Mar (03)</option>
+                <option value="04">Apr (04)</option>
+                <option value="05">May (05)</option>
+                <option value="06">June (06)</option>
+                <option value="07">July (07)</option>
+                <option value="08">Aug (08)</option>
+                <option value="09">Sep (09)</option>
+                <option value="10">Oct (10)</option>
+                <option value="11">Nov (11)</option>
+                <option value="12">Dec (12)</option>
+              </select>
+
+              <select class="ecom-form" data-stripe="exp_year" required>
+                <option>Year</option>
+                <option value="16">2016</option>
+                <option value="17">2017</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+                <option value="13">2024</option>
+                <option value="14">2025</option>
+                <option value="15">2026</option>
+              </select>
+
+              <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc" required>
+		
+		<div class="space-lg"></div>
+		<div class="col-sm-12 text-center">
+			<div class="btn-checkout-wrapper">
+			  <div class="col-sm-6 col-12-no-padding-left">
+			    <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
+			  </div>    
+			</div>
+		</div>
+        <div class="space-lg"></div>
+        </form>
+	</div>
+</div> <!-- /.row -->       
+</div><!-- /.ng-controller -->
+<div class="space-lg"></div>
+

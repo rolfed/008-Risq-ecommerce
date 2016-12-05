@@ -113,7 +113,8 @@ function EcomCtrl($scope){
 	    $scope.objTotal = {
 	    	sum : $scope.totalSum,
 	    	shipping : $scope.shipping,
-	    	tax : $scope.tax
+	    	tax : $scope.tax,
+	    	product : $scope.productId
 	    };
 
 	    var sumPlusTax = $scope.totalSum + $scope.tax;

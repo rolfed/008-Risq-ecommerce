@@ -29,13 +29,15 @@
             
             <navigation></navigation>
 
+            <!-- <ng-view></ng-view> -->
+
             <div class="space-lg"></div>
 
             <recipe></recipe>
 
             <div class="space-lg"></div>
 
-            <instagram></instagram>
+            <instagram class="hidden-xs"></instagram>
 
             <div class="space-lg"></div> 
 
@@ -47,7 +49,7 @@
 
             <div class="space-lg"></div> 
 
-            <address></address>
+            <address class="hidden-xs"></address>
 
             <div class="space-lg"></div>
 

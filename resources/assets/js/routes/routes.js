@@ -10,8 +10,8 @@ app.config(['$routeProvider', function($routeProvider) {
   })
 
   // Mobile Ecommerce 
-  .when('/', {
-    templateUrl: '../assets/views/mobileEcom.html',
+  .when('/ecom-mobile', {
+    templateUrl: '../assets/views/_partials/mobile-ecom.html',
     controller: 'EcomCtrl',
     controllerAs: 'vm'
   })

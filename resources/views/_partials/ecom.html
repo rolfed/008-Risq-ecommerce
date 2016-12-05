@@ -6,7 +6,7 @@
 		<div class="hidden-md hidden-lg hidden-xl">
 		    <div class="btn-grab-wrapper">
 		      <div class="text-center ecom-wrapper">
-		        <a class="btn-ecom" href="/#/order">Grab Some</a>
+		        <a class="btn-ecom" href="/#/ecom-mobile">Grab Some</a>
 		      </div> 
 		    </div> 
 		</div>
@@ -110,7 +110,6 @@
           <input type="hidden" name="_token" value="{{ csrfToken }}">
           <input type="hidden" name="total" value="{{ objTotal }}">
           <input type="hidden" name="products" value="{{ products }}">
-          <input type="hidden" name="stripeEmail" value="">
           
           <div class="col-sm-6">
             <input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
@@ -119,17 +118,17 @@
             <input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address" required>
+            <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address_line1" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address">
+            <input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address_line2">
           </div>
           <div class="col-sm-6">
             <input type="text" class="ecom-form" name="City" placeholder="City" data-stripe="city" required>
           </div>
           <div class="col-sm-2">
             <!-- <input type="text" class="ecom-form" placeholder="State" required> -->
-            <select class="ecom-form" name="state" id="state" data-stripe="state" required>
+            <select class="ecom-form" name="state" id="state" data-stripe="address_state" required>
                 <option>State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -185,7 +184,7 @@
               </select>
           </div>  
           <div class="col-sm-4">
-            <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="zip" required>
+            <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="address_zip" required>
           </div>
           <div class="col-sm-12">
             <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>

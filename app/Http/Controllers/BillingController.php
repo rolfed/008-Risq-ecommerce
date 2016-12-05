@@ -15,7 +15,7 @@ class BillingController extends Controller
 	public function submitPayment(Request $request) {
 
 
-		\Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
+		Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
 		$token = $request->stripeToken;
 
@@ -40,32 +40,25 @@ class BillingController extends Controller
     		$product["qty"] 	. " " .
     		$product["title"] 	. " Product ID: " . $product["productId"] ." ". " was ordered and the total payment was $" .
     		($product["sumTotal"]/1) . ".\r\n \r\n";
-
-    		// $product["qty"] . " " . $product["title"] . " was ordered at $" . $product["price"] . " each. " . "\n" . 
-    		// "The customer was charged $" . ($sum/100);
     	} 
-		
-
-		// $customer = \Stripe\Customer::create([
-		// 	'email' => 'email',
-		// 	'source' => $request->stripeToken,
-		// ]);
-
-		dd($customer);
 
 		try {
-			$charge = \Stripe\Charge::create(array(
+			$charge = Charge::create(array(
 				"amount" => $sum,
 				"currency" => "usd",
 				"source" => $token,
-				"description" => $description
+				"description" => $description,
+
 			));
 
-			return response('You order was succesful!', 200)->header('Content-type', 'text/plain'); 
+			$data = array(
+				"levels" => "levels"
+			);
+
+			return view('order-complete', compact($data));
 
 		} catch(\Stipe\Error\Card $e) {
 			// The Card has been declined
-
 			return response('The Card has been declined', 500) ->header('Content-type', 'text/plain'); 
 		}
 	}

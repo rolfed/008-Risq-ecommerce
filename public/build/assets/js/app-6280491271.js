@@ -127,7 +127,8 @@ function EcomCtrl($scope){
 	    $scope.objTotal = {
 	    	sum : $scope.totalSum,
 	    	shipping : $scope.shipping,
-	    	tax : $scope.tax
+	    	tax : $scope.tax,
+	    	product : $scope.productId
 	    };
 
 	    var sumPlusTax = $scope.totalSum + $scope.tax;
@@ -978,6 +979,22 @@ function uiMap(){
 	/* Load Directive */
 	return directive;
 };
+app.directive('mobile-ecom', mobile);
+
+function mobile(){
+	var directive = {
+		link: linkFunc,
+		templateUrl: '../assets/views/_partials/mobile-ecom.html',
+		$scope: {}
+	}
+
+	function linkFunc(){
+		
+	};
+
+	return directive;
+
+};
 app.directive('navigation', navigation);
 
 function navigation(){
@@ -1028,8 +1045,8 @@ app.config(['$routeProvider', function($routeProvider) {
   })
 
   // Mobile Ecommerce 
-  .when('/', {
-    templateUrl: '../assets/views/mobileEcom.html',
+  .when('/ecom-mobile', {
+    templateUrl: '../assets/views/_partials/mobile-ecom.html',
     controller: 'EcomCtrl',
     controllerAs: 'vm'
   })
