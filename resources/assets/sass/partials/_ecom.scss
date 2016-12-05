@@ -24,10 +24,16 @@
  	width: 1170px;
  	max-width: 1170px;
  }
- .bg-black {
+ .bg-black,
+ .bg-black-small {
  	background-color: $black;
- 	height: 1000px;
  	padding-left: -15px;
+ }
+ .bg-black-small {
+	padding: 30px;
+ }
+ .bg-black {
+ 	height: 1000px;
  }
  .bg-orange-sm {
  	background-color: $strawberrykiwi;
@@ -195,7 +201,9 @@ color: $black;
 .ecom-btn-padding {
 	padding-top: 30px;
 }
-
+.receipt-logo {
+	width: 200px;
+}
 @media screen and (max-width: $medium) {
 	.ecom-bg-image {
 	    background-image: url('../img/risq-energy-ecommerce.jpg');

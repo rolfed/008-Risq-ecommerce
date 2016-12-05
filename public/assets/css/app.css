@@ -8174,10 +8174,18 @@ a.showHideRecipe {
   max-width: 1170px;
 }
 
-.bg-black {
+.bg-black,
+.bg-black-small {
   background-color: #000;
-  height: 1000px;
   padding-left: -15px;
+}
+
+.bg-black-small {
+  padding: 30px;
+}
+
+.bg-black {
+  height: 1000px;
 }
 
 .bg-orange-sm {
@@ -8373,6 +8381,10 @@ input#expiry-year {
 
 .ecom-btn-padding {
   padding-top: 30px;
+}
+
+.receipt-logo {
+  width: 200px;
 }
 
 @media screen and (max-width: 768px) {
