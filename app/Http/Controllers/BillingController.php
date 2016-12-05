@@ -14,6 +14,7 @@ class BillingController extends Controller
   
 	public function submitPayment(Request $request) {
 
+
 		\Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
 		$token = $request->stripeToken;
@@ -23,7 +24,7 @@ class BillingController extends Controller
 		$timeStamp = date('d-m-Y');
 		$description = "";
 		$price = ($total["sum"] * 100);
-		$sum = ($total["sum"] + $total["shipping"] + $total["tax"]) * 100;
+		$sum = ($total["sum"] + $total["shipping"] + $total["tax"]) * 100; // Stripe accepts charge in cents, but we're mostly using doubles for our currency stores.
 		$totalQty = 0;
 
 
@@ -37,13 +38,20 @@ class BillingController extends Controller
     		$description .= 
     		"ORDER: " .
     		$product["qty"] 	. " " .
-    		$product["title"] 	. " Product ID: " . $product["productId"] . " ". " was ordered and the total payment was $" .
+    		$product["title"] 	. " Product ID: " . $product["productId"] ." ". " was ordered and the total payment was $" .
     		($product["sumTotal"]/1) . ".\r\n \r\n";
 
     		// $product["qty"] . " " . $product["title"] . " was ordered at $" . $product["price"] . " each. " . "\n" . 
     		// "The customer was charged $" . ($sum/100);
     	} 
 		
+
+		// $customer = \Stripe\Customer::create([
+		// 	'email' => 'email',
+		// 	'source' => $request->stripeToken,
+		// ]);
+
+		dd($customer);
 
 		try {
 			$charge = \Stripe\Charge::create(array(
@@ -53,13 +61,12 @@ class BillingController extends Controller
 				"description" => $description
 			));
 
-			return response("You order was succesful!", 200)->header('Content-type', 'text/plain'); 
+			return response('You order was succesful!', 200)->header('Content-type', 'text/plain'); 
 
 		} catch(\Stipe\Error\Card $e) {
 			// The Card has been declined
 
-			return response("The Card has been declined", 500) ->header('Content-type', 'text/plain'); 
+			return response('The Card has been declined', 500) ->header('Content-type', 'text/plain'); 
 		}
-	}	
-     
+	}
 }
