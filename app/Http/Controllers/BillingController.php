@@ -26,6 +26,7 @@ class BillingController extends Controller
 		$price = ($total["sum"] * 100);
 		$sum = ($total["sum"] + $total["shipping"] + $total["tax"]) * 100; // Stripe accepts charge in cents, but we're mostly using doubles for our currency stores.
 		$totalQty = 0;
+		
 
 
 		foreach ($products as $product) {
@@ -48,8 +49,13 @@ class BillingController extends Controller
 				"currency" => "usd",
 				"source" => $token,
 				"description" => $description,
+				"receipt_email" => $request->email
 
 			));
+
+			// $customer = Customer::create(array(
+			// 	'email' => 'info@dannielrolfe.com'
+			// ));
 
 			$data = array(
 				"levels" => "levels"
