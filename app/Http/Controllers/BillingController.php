@@ -63,6 +63,8 @@ class BillingController extends Controller
 
 			return view('order-complete', compact($data));
 
+			//return response('It worked!');
+
 		} catch(\Stipe\Error\Card $e) {
 			// The Card has been declined
 			return response('The Card has been declined', 500) ->header('Content-type', 'text/plain'); 

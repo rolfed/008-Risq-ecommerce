@@ -4,15 +4,17 @@ services:
         build:
             context: ./
             dockerfile: web.docker
-        volumes:
-            - ./:/var/www
+        # volumes:
+        #     - ./:/var/www
         ports:
-            - "8080:80"
+            - "80:80"
         links:
             - app
     app:
         build:
             context: ./
             dockerfile: app.docker
-        volumes:
-            - ./:/var/www
+        ports:
+            - "9000:9000"
+        # volumes:
+        #     - ./:/var/www
