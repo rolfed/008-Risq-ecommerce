@@ -1,7 +1,55 @@
-FROM php:7-fpm
-
-RUN apt-get update && apt-get install -y libmcrypt-dev \
-    && docker-php-ext-install mcrypt 
-
-WORKDIR /var/www
-COPY . .
+FROM silintl/ubuntu:16.04
+MAINTAINER Paul <paull>
+ 
+ENV HOST='risq.dev'
+ 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN apt-get update
+RUN apt-get install -y libterm-readline-perl-perl apt-utils
+RUN apt-get upgrade -y
+#RUN apt-get install -y htop lsof mlocate apt-utils curl mlocate curl git netcat iputils-ping mysql-client vim
+ 
+RUN apt-get install -y libmcrypt-dev
+#RUN docker-php-ext-install mcrypt
+ 
+RUN apt-get install -y apache2 libapache2-mod-php php php-cli php-curl php-dom php-intl php-json php-ldap php-mbstring php-mcrypt php-mysql php-sqlite3 php-zip
+ 
+RUN phpenmod mcrypt
+RUN phpenmod json
+RUN apt-get clean
+ 
+RUN apt-get install -y phpunit php-mysqlnd php-gd
+RUN apt-get install -y libc-client-dev
+RUN apt-get install -y php-imap
+RUN phpenmod imap
+ 
+RUN a2enmod headers
+RUN a2enmod rewrite
+ 
+#RUN apt-get install -y wget build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev
+ 
+#RUN apt-get install -y nodejs  npm
+ 
+WORKDIR /var/www/$HOST
+COPY . /var/www/$HOST
+RUN chown -R www-data:www-data /var/www/$HOST/storage
+ 
+RUN echo " \n\
+<VirtualHost *:80> \n\
+      ServerName $HOST \n\
+    DocumentRoot /var/www/$HOST/public \n\
+    ServerAlias server01 \n\
+    CustomLog /var/log/apache2/risq_access.log combined \n\
+    ErrorLog /var/log/apache2/risq_error.log \n\
+    <Directory /var/www/$HOST/public> \n\
+        AllowOverride All \n\
+        Order Allow,Deny \n\
+        Allow from All \n\
+    </Directory> \n\
+</VirtualHost> \n\
+" >> /etc/apache2/sites-available/$HOST.conf
+ 
+RUN a2dissite 000-default.conf && a2ensite $HOST.conf
+ 
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
