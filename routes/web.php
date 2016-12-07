@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('layout');
 });
 
 Route::get('/order-complete', function () {

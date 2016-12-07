@@ -50,6 +50,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     </head>
     <body ng-contoller="GlobalCtrl as global" id="top">
+    <h1 class="test"></h1>
         <div class="container">
             
             <navigation></navigation>
