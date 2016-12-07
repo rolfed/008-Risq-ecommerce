@@ -10,10 +10,9 @@ app.config(['$routeProvider', function($routeProvider) {
   })
 
   // Mobile Ecommerce 
-  .when('/ecom-mobile', {
+  .when('/mobile-ecom', {
     templateUrl: '../assets/views/_partials/mobile-ecom.html',
-    controller: 'EcomCtrl',
-    controllerAs: 'vm'
+    controller: 'EcomCtrl'
   })
 
   // 404

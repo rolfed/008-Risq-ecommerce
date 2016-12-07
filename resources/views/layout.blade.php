@@ -19,11 +19,6 @@
 
         <!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-	</head>
-	<body ng-contoller="GlobalCtrl as global" id="top">
-        <div class="container">
-        
-        @yield('content')
 
         <!-- bower:js -->
         <script src='{{ asset('/bower_components/jquery/dist/jquery.js') }}'></script>
@@ -49,6 +44,13 @@
         
         <!-- App JS -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+	</head>
+	<body ng-contoller="GlobalCtrl as global" id="top">
+        <div class="container">
+
+        @yield('content')
+
+        
 
         <!-- Google Analytics -->
         <script type='text/javascript'>
