@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="risq"><!--<![endif]-->
-	<head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv"X-UA-Compatible" content="IE=edge">
         <title>Risq Energy - Drink It - Mix It - Share It</title>
@@ -17,13 +17,11 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
         </meta>
 
-        <!-- Main CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-	</head>
-	<body ng-contoller="GlobalCtrl as global" id="top">
-        <div class="container">
-        
-        @yield('content')
+        <!-- bower:css -->
+        <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
+
+        <!-- Include Stripe -->
+        <script type="text/javascript" src="https://js.stripe.com/v2/" async></script>
 
         <!-- bower:js -->
         <script src='{{ asset('/bower_components/jquery/dist/jquery.js') }}'></script>
@@ -42,13 +40,80 @@
         <script src='{{ asset('/bower_components/angular-stripe/release/angular-stripe.js') }}'></script>
         <!-- endbower -->
         <script src='{{ asset('/bower_components/instafeed/instafeed.js') }}'></script>
+        
+        <!-- App JS -->
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+        
+        <!-- endbower -->
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    </head>
+    <body ng-contoller="GlobalCtrl as global" id="top">
+        <div class="container">
+            
+            <navigation></navigation>
+
+            <!-- <ng-view></ng-view> -->
+
+            <div class="space-lg"></div>
+
+            <recipe></recipe>
+
+            <div class="space-lg"></div>
+
+            <instagram class="hidden-xs"></instagram>
+
+            <div class="space-lg"></div> 
+
+            <ecom data-csrf-token="{{ csrf_token() }}"></ecom>
+
+            <div class="space-lg"></div>
+            
+            <uimap></uimap>
+
+            <div class="space-lg"></div> 
+
+            <address class="hidden-xs"></address>
+
+            <div class="space-lg"></div>
+
+            <ftr></ftr>
+        </div>
+
+        
+        
+        
+        
+        <script type="text/javascript">
+            // This identifies your website in the createToken call below
+            //Stripe.setPublishableKey('{{ env('STRIPE_PK') }}');
+        </script>
+
+        <script type="text/javascript">
+              app.constant("CSRF_TOKEN", '{{ csrf_token() }}')
+        </script>
 
         <!-- Adobe Typekit -->
         <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>
         <script type='text/javascript' >try{Typekit.load({ async: true });}catch(e){}</script>
         
-        <!-- App JS -->
-        <script src="{{ asset('assets/js/app.js') }}"></script>
+        <!-- Instafeed -->
+          
+        <script type='text/javascript'>
+
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '3852337515',
+                template: '<div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="" /></a></div>',
+                clientId: 'e673a9025c6f4653978f207207a55c17',
+                accessToken: '3852337515.1677ed0.9a45801ee7664720843f68e8e380e994',
+                resolution: 'standard_resolution',
+                limit: 8
+            });
+
+            feed.run();
+        </script>
 
         <!-- Google Analytics -->
         <script type='text/javascript'>
@@ -61,7 +126,6 @@
           ga('send', 'pageview');
 
         </script>
-
     </body>
 
 </html>
