@@ -734,6 +734,24 @@ function MapCtrl($scope, $http){
 };
 
 
+/** Routes **/
+app.config(['$routeProvider', function($routeProvider) {
+
+  $routeProvider
+  // Home
+  .when('/', {
+    templateUrl: '../assets/views/homePage.html',
+    controller: 'GlobalCtrl',
+    controllerAs: 'vm'
+  })
+
+  // 404
+  .otherwise('/404', {
+    templateUrl: '../assets/views/404.html',
+    controller: 'GlobalCtrl',
+  })
+
+}]);
 app.directive('address', address);
 
 function address(){
@@ -788,7 +806,7 @@ function ecom(){
 		
 		/* Stripe payment */
         var $form = $('#payment-form');
-        console.log($form);
+        //console.log($form);
 
         function stripeResponseHandler(status, response) {
             if (response.error) {
@@ -873,7 +891,7 @@ function ecom(){
 
 		/* Payment Form - View 4 to View 5 */
 		$scope.paymentInput = function(){
-			console.log('Add Payment Info')
+			//console.log('Add Payment Info')
 			var view2 = document.querySelector('#view-2');
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
@@ -889,7 +907,7 @@ function ecom(){
 			}, 100);
 			
 		}
-
+		console.log($scope);
 	};
 	/* Load Template */
 	return directive;
@@ -1008,41 +1026,45 @@ function orderMobile(){
 	var directive = {
 		link: linkFunc,
 		templateUrl: '../assets/views/_partials/order.html',
-		controller: 'EcomCtrl',
-		require: 'ecom.directive',
-		$scope: {}
-
+		$scope: {
+			csrfTokenMobile : '@',
+			objTotal : '@'
+		},
+        restrict: 'E'
 	}
 
 	/* DOM Animation */
 	function linkFunc($scope){
-		/* Stripe payment */
-        var $form = $('#payment-form');
-        console.log($form);
+		// /* Stripe payment */
+  //       var $form = $('#payment-form');
+  //       //console.log($form);
 
-        function stripeResponseHandler(status, response) {
-            if (response.error) {
-                $form.find('.payment-errors').text(response.error.message);
-                $form.find('#submit-form').prop('disabled', false);
-            } else {
-                var token = response.id;
-                $form.append($('<input type="hidden" name="stripeToken">').val(token));
-                $form.find('#submit-form').prop('disabled', false);
-                $form.get(0).submit();
-            }
-        };
+  //       function stripeResponseHandler(status, response) {
+  //           if (response.error) {
+  //               $form.find('.payment-errors').text(response.error.message);
+  //               $form.find('#submit-form').prop('disabled', false);
+  //           } else {
+  //               var token = response.id;
+  //               $form.append($('<input type="hidden" name="stripeToken">').val(token));
+  //               $form.find('#submit-form').prop('disabled', false);
+  //               $form.get(0).submit();
+  //           }
+  //       };
 
-        $form.submit(function(event) {
-            $form.find('#submit-form').prop('disabled', true);
-            Stripe.card.createToken($form, stripeResponseHandler);
-            return false;  
-        });
+  //       $form.submit(function(event) {
+  //           $form.find('#submit-form').prop('disabled', true);
+  //           Stripe.card.createToken($form, stripeResponseHandler);
+  //           return false;  
+  //       });
+
+        console.log($scope.csrfTokenMobile, $scope);
 
 	}
 
 	/* Load Directive */
 	return directive;
 }; 
+
 app.directive('recipe', recipe);
 
 function recipe(){
@@ -1074,22 +1096,4 @@ function recipe(){
 	/* Load Tamplate */
 	return directive;
 };
-/** Routes **/
-app.config(['$routeProvider', function($routeProvider) {
-
-  $routeProvider
-  // Home
-  .when('/', {
-    templateUrl: '../assets/views/homePage.html',
-    controller: 'GlobalCtrl',
-    controllerAs: 'vm'
-  })
-
-  // 404
-  .otherwise('/404', {
-    templateUrl: '../assets/views/404.html',
-    controller: 'GlobalCtrl',
-  })
-
-}]);
 //# sourceMappingURL=app.js.map

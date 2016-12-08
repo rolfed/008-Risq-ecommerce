@@ -22,7 +22,7 @@ function ecom(){
 		
 		/* Stripe payment */
         var $form = $('#payment-form');
-        console.log($form);
+        //console.log($form);
 
         function stripeResponseHandler(status, response) {
             if (response.error) {
@@ -107,7 +107,7 @@ function ecom(){
 
 		/* Payment Form - View 4 to View 5 */
 		$scope.paymentInput = function(){
-			console.log('Add Payment Info')
+			//console.log('Add Payment Info')
 			var view2 = document.querySelector('#view-2');
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
@@ -123,7 +123,7 @@ function ecom(){
 			}, 100);
 			
 		}
-
+		console.log($scope);
 	};
 	/* Load Template */
 	return directive;
