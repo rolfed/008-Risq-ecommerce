@@ -108,7 +108,7 @@
 
 <!-- View 4 --> 
   <!-- <form id="payment-form" role="form" method="post" action="/submit-payment">  -->
-  <form id="payment-form" role="form" method="post" action="/submit-payment"> 
+  <form id="payment-form" role="form" method="post" name="payment-form" action="/submit-payment"> 
     
     <div class="col-sm-12 bg-black fadeIn" id="view-4">
       <div class="ecom-qty-wrapper">
@@ -121,23 +121,23 @@
           <input type="hidden" name="products" value="{{ products }}">
           
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="first-name" placeholder="First Name" required>
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="last-name" placeholder="Last Name" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address_line1" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="address-line-1" placeholder="Address Line 1" data-stripe="address_line1" required>
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address_line2">
+            <input type="text" class="ecom-form ecom-form-selector" name="address-line-2" placeholder="Address Line 2" data-stripe="address_line2">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form" name="City" placeholder="City" data-stripe="city" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="city" placeholder="City" data-stripe="city" required>
           </div>
           <div class="col-sm-2">
             <!-- <input type="text" class="ecom-form" placeholder="State" required> -->
-            <select class="ecom-form" name="state" id="state" data-stripe="address_state" required>
+            <select class="ecom-form ecom-form-selector" name="state" id="state"  data-stripe="address_state" required>
                 <option>State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -193,15 +193,21 @@
               </select>
           </div>  
           <div class="col-sm-4">
-            <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="address_zip" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="zip" placeholder="Zip" data-stripe="address_zip" required>
           </div>
+          
           <div class="col-sm-12">
-            <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>
+            <input type="email" class="ecom-form ecom-form-selector" name="email" placeholder="Email" data-stripe="email" required>
           </div> 
-          <div class="col-sm-6 ecom-btn-padding">
-            <!-- <button class="uppercase btn-underline">Use this address</button> -->
-            <button class="btn-ecom" ng-click="paymentInput();">Payment</button>
+          
+          <div class="col-sm-9 ecom-btn-padding">
+            <button class="btn-ecom" ng-click="addrValidation(); paymentInput();">Payment</button>
           </div> 
+          
+          <div class="col-sm-3 ecom-btn-padding text-right">
+            <button class="btn-ecom" ng-click="checkoutBack();">Back</button>
+          </div>
+          
           <div class="payment-errors"></div>
       </div><!--  /.ecom-qty-wrapper --> 
     </div><!-- /.View-4 -->
@@ -257,9 +263,13 @@
           
           <div class="col-sm-12">
             <div class="btn-checkout-wrapper">
-              <div class="col-sm-6 col-12-no-padding-left">
+              <div class="col-sm-9 col-12-no-padding-left">
                 <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
-              </div>    
+              </div>  
+
+              <div class="col-sm-3 ecom-btn-padding text-right">
+                <button class="btn-ecom">Back</button>
+              </div>  
             </div>
           </div>
       </div> 

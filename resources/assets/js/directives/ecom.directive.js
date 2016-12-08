@@ -73,7 +73,7 @@ function ecom(){
 		// };
 
 		/* AddToCart button animation - View 2 to View 3*/	
-		$scope.addToCart = function(preventAddToCard){
+		$scope.addToCart = function(){
 
 			//$scope.preventAddToCard();
 
@@ -93,20 +93,64 @@ function ecom(){
 					
 		};
 
-		/* Address Form - View 3 to View 4 */
-		$scope.checkout = function(){
-			//console.log("addrInput is loading");
+		/* Back Button - AddToCart View - View 4 to View 3 */
+		/*************************************************/
+		$scope.checkoutBack = function(){
 			var view2 = document.querySelector('#view-2');
 			var view3 = document.querySelector('#view-3');
 			var view4 = document.querySelector('#view-4');
+			var inputFields = document.getElementsByClassName('ecom-form-selector');
+			console.log(inputFields);
+			//inputFields.removeAttribute('required', 'required');
+			//var bg = document.querySelector('#ecom-image');
+			//bg.className = "ecom-bg-image";
+			view2.style.left="50%";
+			view3.style.right="0%";
+			view3.style.opacity="1";
+			view4.style.right="-100%";
+
+		};
+
+		/* Form Validation */
+		$scope.addrValidation = function(checkout){
+			var firstName = document.forms['payment-form']['first-name'].value;
+			var lastName = document.forms['payment-form']['last-name'].value;
+			var addr1 = document.forms['payment-form']['address-line-1'].value;
+			var city = document.forms['payment-form']['city'].value;
+			var zip = document.forms['payment-form']['zip'].value;
+			var state = document.forms['payment-form']['state'].value;
+			var email = document.forms['payment-form']['email'].value;
+
+			if(	firstName == null || lastName  ==  null || addr1 ==  null || city  ==  null || zip  ==  null || state  ==  null || state  ==  "State" || email  ==  null){
+				alert('Please fill out all fields');
+
+				return checkout.preventDefault();
+			};
+
+		};
+
+		/* Address Form - View 3 to View 4 */
+		$scope.checkout = function(){
+			//console.log("addrInput is loading");
+			
+
+			var view2 = document.querySelector('#view-2');
+			var view3 = document.querySelector('#view-3');
+			var view4 = document.querySelector('#view-4');
+
+			view2.style.left="100%";
 			view3.style.right="-100%";
-			view2.style.right="-100%";
 			view3.style.opacity="0";
 			view4.style.right="0";
+
 		};
+
+
 
 		/* Payment Form - View 4 to View 5 */
 		$scope.paymentInput = function(){
+			var inputFields = document.getElementsByClassName('ecom-form-selector');
+
 			//console.log('Add Payment Info')
 			var view2 = document.querySelector('#view-2');
 			var view4 = document.querySelector('#view-4');
@@ -121,9 +165,9 @@ function ecom(){
 				view5.style.right="0";
 				//view5.classList.toggle('hidden');
 			}, 100);
-			
+
 		}
-		console.log($scope);
+			
 	};
 	/* Load Template */
 	return directive;
