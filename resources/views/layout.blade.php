@@ -30,13 +30,13 @@
         <script src='{{ asset('/bower_components/social-share-kit/dist/js/social-share-kit.min.js') }}'></script>
         <script src='{{ asset('/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js') }}'></script>
         <script src='{{ asset('/bower_components/angular-simple-logger/dist/angular-simple-logger.js') }}'></script>
-        <script src='{{ asset('/bower_components/lodash/lodash.js') }}'></script>
+        {{-- <script src='{{ asset('/bower_components/lodash/lodash.js') }}'></script>
         <script src='{{ asset('/bower_components/markerclustererplus/src/markerclusterer.js') }}'></script>
         <script src='{{ asset('/bower_components/google-maps-utility-library-v3-markerwithlabel/dist/markerwithlabel.js') }}'></script>
         <script src='{{ asset('/bower_components/google-maps-utility-library-v3-infobox/dist/infobox.js') }}'></script>
         <script src='{{ asset('/bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js') }}'></script>
         <script src='{{ asset('/bower_components/js-rich-marker/src/richmarker.js') }}'></script>
-        <script src='{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}'></script>
+        <script src='{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}'></script> --}}
         <script src='{{ asset('/bower_components/angular-stripe/release/angular-stripe.js') }}'></script>
         <!-- endbower -->
         <script src='{{ asset('/bower_components/instafeed/instafeed.js') }}'></script>
@@ -55,6 +55,14 @@
             @yield('content')
 
         </div>
+
+        <script src='{{ asset('/bower_components/lodash/lodash.js') }}'></script>
+        <script src='{{ asset('/bower_components/markerclustererplus/src/markerclusterer.js') }}'></script>
+        <script src='{{ asset('/bower_components/google-maps-utility-library-v3-markerwithlabel/dist/markerwithlabel.js') }}'></script>
+        <script src='{{ asset('/bower_components/google-maps-utility-library-v3-infobox/dist/infobox.js') }}'></script>
+        <script src='{{ asset('/bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js') }}'></script>
+        <script src='{{ asset('/bower_components/js-rich-marker/src/richmarker.js') }}'></script>
+        <script src='{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}'></script>
 
         <!-- Adobe Typekit -->
         <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>

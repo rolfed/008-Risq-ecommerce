@@ -5,9 +5,10 @@ function MapCtrl($scope, $http){
 
   $scope.map = {
 		center: {
-			latitude: 44.944099,
-      longitude: -123.040283 }, 
+	  latitude: 44.944099,
+        longitude: -123.040283 }, 
         zoom: 12,
+        key: 'AIzaSyAzN29aDknykQyTUmAWJapI_z_Mu7wKv3Q',
         markers : [
             {	"id"			: 	1, 
             "coords"		: 	{ "latitude": 44.942037, "longitude": -123.038386},
