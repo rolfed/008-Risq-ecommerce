@@ -33,39 +33,11 @@
 	<body ng-contoller="GlobalCtrl as global" id="top">
         <div class="container">
             
-            <navigation></navigation>
-            
             <!-- <ng-view></ng-view> -->
-
-            <div class="space-lg"></div>
-            <h1 class="test"></h1>
-            <recipe></recipe>
-
-            <div class="space-lg"></div>
-
-            <instagram class="hidden-xs"></instagram>
-
-            <div class="space-lg"></div> 
-
-            <ecom data-csrf-token="{{ csrf_token() }}"></ecom>
-
-            <div class="space-lg"></div>
-            
-            <uimap></uimap>
-
-            <div class="space-lg"></div> 
-
-            <address class="hidden-xs"></address>
-
-            <div class="space-lg"></div>
-
-            <ftr></ftr>
+           @yield('content')
         </div>
 
-        
-        
-        
-        
+
         <script type="text/javascript">
             // This identifies your website in the createToken call below
             //Stripe.setPublishableKey('{{ env('STRIPE_PK') }}');

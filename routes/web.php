@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('homepage');
+});
+
+Route::get('/order', function () {
+    return view('order');
 });
 
 Route::get('/order-complete', function () {

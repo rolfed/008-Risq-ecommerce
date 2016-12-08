@@ -2,6 +2,7 @@
 
 
 @section('content')
+	
 	<navigation></navigation>
 
 	<div class="space-lg"></div>
@@ -27,4 +28,5 @@
 	<div class="space-lg"></div>
 
 	<ftr></ftr>
+
 @stop

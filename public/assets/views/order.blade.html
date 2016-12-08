@@ -2,53 +2,53 @@
 <div ng-controller="EcomCtrl" data-csrf-token="{{ csrf_token() }}>
 <div class="space-lg"></div>
 <div class="row  bg-black" >
-	<div class="col-sm-12" >  
-		<div class="ecom-wrapper">
-			<div ng-repeat="product in products">
-				<h3 class="text-center white ecom-title">{{product.title}}</h3>
-				<div class="ecom-border">
-					<ul class="ecom-qty-wrapper">
-						<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="decreaseItemCount(product)">-</a></div></li>
-						<li><p class="ecom-total-qty">{{product.qty}}</p></li>
-	        			<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
-						<li><p class="ecom-total-qty" ng-bind="sumCalc({{$index}})"></p></li>
-					</ul>
-				</div>
-			</div>    
-		</div>
-	</div> 
+  <div class="col-sm-12" >  
+    <div class="ecom-wrapper">
+      <div ng-repeat="product in products">
+        <h3 class="text-center white ecom-title">{{product.title}}</h3>
+        <div class="ecom-border">
+          <ul class="ecom-qty-wrapper">
+            <li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="decreaseItemCount(product)">-</a></div></li>
+            <li><p class="ecom-total-qty">{{product.qty}}</p></li>
+                <li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
+            <li><p class="ecom-total-qty" ng-bind="sumCalc({{$index}})"></p></li>
+          </ul>
+        </div>
+      </div>    
+    </div>
+  </div> 
 
-	<div class="space"></div>
+  <div class="space"></div>
 
-	<div class="col-md-12 text-center">
-		<h4 class="white sub-total">Sub Total <span class="white sub-total" ng-bind="subTotal();"> </span></h4>
-		<h4 class="white sub-total">Sales Tax <span class="white sub-total">{{ tax | currency}}</span></h4>
-		<h4 class="white sub-total">Shipping <span class="white sub-total" ng-bind="totalCalc();">{{ shipping | currency}}</span></h4>
-	</div>
-	<div class="space-lg"></div>
+  <div class="col-md-12 text-center">
+    <h4 class="white sub-total">Sub Total <span class="white sub-total" ng-bind="subTotal();"> </span></h4>
+    <h4 class="white sub-total">Sales Tax <span class="white sub-total">{{ tax | currency}}</span></h4>
+    <h4 class="white sub-total">Shipping <span class="white sub-total" ng-bind="totalCalc();">{{ shipping | currency}}</span></h4>
+  </div>
+  <div class="space-lg"></div>
 </div><!--/.row-->
 <div class="space-lg"></div>
 <div class="row">
-	<div class="col-md-12">
-		<h1 class="gray title text-center">Where Should <br>We Ship</h1>
-	</div>
+  <div class="col-md-12">
+    <h1 class="gray title text-center">Where Should <br>We Ship</h1>
+  </div>
 </div>
 <div class="space"></div>
 <div class="row bg-black">
-	<div class="col-sm-12">
-		<form id="payment-form" role="form" method="post" action="/submit-payment"> 
-			<!-- csrf_token -->
-			<input type="hidden" name="_token" value="{{ csrfToken }}">
-			<input type="hidden" name="total" value="{{ objTotal }}">
-			<input type="hidden" name="products" value="{{ products }}">
-			<div class="space"></div>
-			
-			<input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
-			<input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
-			<input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address_line1" required>
-			<input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address_line2">
-			<input type="text" class="ecom-form" name="City" placeholder="City" data-stripe="city" required>
-			<select class="ecom-form" name="state" id="state" data-stripe="address_state" required>
+  <div class="col-sm-12">
+    <form id="payment-form" role="form" method="post" action="/submit-payment"> 
+      <!-- csrf_token -->
+      <input type="hidden" name="_token" value="{{ csrfToken }}">
+      <input type="hidden" name="total" value="{{ objTotal }}">
+      <input type="hidden" name="products" value="{{ products }}">
+      <div class="space"></div>
+      
+      <input type="text" class="ecom-form" name="first-name" placeholder="First Name" required>
+      <input type="text" class="ecom-form" name="last-name" placeholder="Last Name" required>
+      <input type="text" class="ecom-form" name="Address Line 1" placeholder="Address Line 1" data-stripe="address_line1" required>
+      <input type="text" class="ecom-form" name="Address Line 2" placeholder="Address Line 2" data-stripe="address_line2">
+      <input type="text" class="ecom-form" name="City" placeholder="City" data-stripe="city" required>
+      <select class="ecom-form" name="state" id="state" data-stripe="address_state" required>
                 <option>State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -103,13 +103,13 @@
                 <option value="WY">Wyoming</option>
               </select>
               <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="address_zip" required>
-			  <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>	
-			  
-			  <div class="space-lg"></div>	
-			  <h1 class="white title text-center">What is billing information?</h1>
-			  <input type="text" class="ecom-form" placeholder="Name on card" data-stripe="name" required>	
-			  <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number" required>
-			  <select class="ecom-form" data-stripe="exp_month" id="expiry-month" required="">
+        <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>  
+        
+        <div class="space-lg"></div>  
+        <h1 class="white title text-center">What is billing information?</h1>
+        <input type="text" class="ecom-form" placeholder="Name on card" data-stripe="name" required>  
+        <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number" required>
+        <select class="ecom-form" data-stripe="exp_month" id="expiry-month" required="">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -141,18 +141,18 @@
               </select>
 
               <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc" required>
-		
-		<div class="space-lg"></div>
-		<div class="col-sm-12 text-center">
-			<div class="btn-checkout-wrapper">
-			  <div class="col-sm-6 col-12-no-padding-left">
-			    <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
-			  </div>    
-			</div>
-		</div>
+    
+    <div class="space-lg"></div>
+    <div class="col-sm-12 text-center">
+      <div class="btn-checkout-wrapper">
+        <div class="col-sm-6 col-12-no-padding-left">
+          <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
+        </div>    
+      </div>
+    </div>
         <div class="space-lg"></div>
         </form>
-	</div>
+  </div>
 </div> <!-- /.row -->       
 </div><!-- /.ng-controller -->
 <div class="space-lg"></div>

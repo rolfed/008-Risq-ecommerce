@@ -50,50 +50,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     </head>
     <body ng-contoller="GlobalCtrl as global" id="top">
-    <h1 class="test"></h1>
         <div class="container">
             
-            <navigation></navigation>
+            @yield('content')
 
-            <!-- <ng-view></ng-view> -->
-
-            <div class="space-lg"></div>
-
-            <recipe></recipe>
-
-            <div class="space-lg"></div>
-
-            <instagram class="hidden-xs"></instagram>
-
-            <div class="space-lg"></div> 
-
-            <ecom data-csrf-token="{{ csrf_token() }}"></ecom>
-
-            <div class="space-lg"></div>
-            
-            <uimap></uimap>
-
-            <div class="space-lg"></div> 
-
-            <address class="hidden-xs"></address>
-
-            <div class="space-lg"></div>
-
-            <ftr></ftr>
         </div>
-
-        
-        
-        
-        
-        <script type="text/javascript">
-            // This identifies your website in the createToken call below
-            //Stripe.setPublishableKey('{{ env('STRIPE_PK') }}');
-        </script>
-
-        <script type="text/javascript">
-              app.constant("CSRF_TOKEN", '{{ csrf_token() }}')
-        </script>
 
         <!-- Adobe Typekit -->
         <script type='text/javascript' src="https://use.typekit.net/ols4gou.js"></script>
