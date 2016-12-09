@@ -149,7 +149,7 @@ function ecom(){
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
 
-			view5.style.left="100%";
+			view5.style.right="100%";
 			view4.classList.toggle('hidden');
 			view4.style.right="0";
 			view4.style.opacity="1";
@@ -201,7 +201,17 @@ function ecom(){
 			}
 
 		}
-			
+
+		/* Unide Error Message */
+		$scope.paymentButtonClickedShowErrorMessage = function(){
+			var btn = document.getElementById('submit-form');
+			var errorMessage = document.getElementById('errorMessageStripePayment');
+			btn.addEventListener('click', function(){
+				console.log('btn clicked');
+				console.log(errorMessage);
+				errorMessage.className = 'payment-errors red';
+			});
+		};	
 	};
 	/* Load Template */
 	return directive;
