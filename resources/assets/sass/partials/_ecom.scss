@@ -121,6 +121,13 @@ input#expiry-year {
 	font-family: "mr-eaves-xl-sans";
 	-webkit-appearance: none;
 }
+.mmyy {
+	margin-right: 10px;
+}
+.mmyy-label {
+	margin-right: 30px;
+	width: 25%;
+}
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 color: $black;
 }
@@ -234,10 +241,18 @@ color: $black;
 	 .sub-total {
 	 	font-size: 40px;
 	 }
+	.mmyy-label {
+		margin-right: 30px;
+		// width: 100%;
+	}
 }
 
 @media screen and (max-width: $large) {
 	.ecom-col {
 		padding-right: 20px;
+	}
+	.mmyy-label {
+		margin-right: 30px;
+		width: 100%;
 	}
 }

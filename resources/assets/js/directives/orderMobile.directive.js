@@ -37,6 +37,17 @@ function orderMobile(){
             return false;  
         });
 
+        /* Unide Error Message */
+        $scope.paymentButtonClickedShowErrorMessage = function(){
+            var btn = document.getElementById('submit-form');
+            var errorMessage = document.getElementById('errorMessageStripePayment');
+            btn.addEventListener('click', function(){
+                //console.log('btn clicked');
+                //console.log(errorMessage);
+                errorMessage.className = 'payment-errors red';
+            });
+        };
+
 	}
 
 	/* Load Directive */

@@ -8309,6 +8309,15 @@ input#expiry-year {
   -webkit-appearance: none;
 }
 
+.mmyy {
+  margin-right: 10px;
+}
+
+.mmyy-label {
+  margin-right: 30px;
+  width: 25%;
+}
+
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: #000;
@@ -8435,11 +8444,18 @@ input#expiry-year {
   .sub-total {
     font-size: 40px;
   }
+  .mmyy-label {
+    margin-right: 30px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .ecom-col {
     padding-right: 20px;
+  }
+  .mmyy-label {
+    margin-right: 30px;
+    width: 100%;
   }
 }
 

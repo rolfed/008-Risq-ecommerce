@@ -15,8 +15,10 @@ function address(){
 		$scope.viewMore = function(){
 			var el = document.getElementById('address-wrapper');
 			var height = el.offsetHeight;
+			var addressHeight = document.getElementById("address-wrapper");
+			console.log(addressHeight);
 		
-			if(height < 2049){
+			if(height < 2250){
 				var newHeight = height + 215;
 				el.style.height = newHeight + 'px';
 

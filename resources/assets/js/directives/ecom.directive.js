@@ -207,8 +207,8 @@ function ecom(){
 			var btn = document.getElementById('submit-form');
 			var errorMessage = document.getElementById('errorMessageStripePayment');
 			btn.addEventListener('click', function(){
-				console.log('btn clicked');
-				console.log(errorMessage);
+				//console.log('btn clicked');
+				//console.log(errorMessage);
 				errorMessage.className = 'payment-errors red';
 			});
 		};	
