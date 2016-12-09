@@ -578,7 +578,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 70, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 44.840585, "longitude": -122.871402},
                         "title" : "Stop n Save",
                         "streetAddress": "630 Main ST",
                         "city" : "Aumsville",
@@ -587,7 +587,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 71, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 44.630766, "longitude": -123.065736},
                         "title" : "Space Age",
                         "streetAddress": "3135 Santiam HWY SE",
                         "city" : "Albany",
@@ -596,7 +596,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 72, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 44.917001, "longitude": -123.015303},
                         "title" : "Honky tonk Bar",
                         "streetAddress": "2275 Mcgilchrist St. SE",
                         "city" : "Salem",
@@ -605,7 +605,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 73, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 45.458220, "longitude": -122.782172},
                         "title" : "Progress Grocery & deli",
                         "streetAddress": "8624 SW Hall Blvd",
                         "city" : "Beaverton",
@@ -614,7 +614,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 74, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 45.485411, "longitude": -122.826601},
                         "title" : "7 Eleven",
                         "streetAddress": "4715 SW Murray Blvd",
                         "city" : "Beaverton",
@@ -623,7 +623,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 75, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 45.149609, "longitude": -122.832760},
                         "title" : "Woodburn Liquor OLC Spirits and More",
                         "streetAddress": "1519 N Pacific HWY",
                         "city" : "Woodburn",
@@ -632,7 +632,7 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 76, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 45.149760, "longitude": -122.877121},
                         "title" : "AM/PM",
                         "streetAddress": "850 Lawson Ave",
                         "city" : "Woodburn",
@@ -641,16 +641,16 @@ function MapCtrl($scope, $http){
                         },
                         {
                         "id": 77, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 44.561434, "longitude": -123.265666},
                         "title" : "Debs mixers Washington ST. Liquor store",
-                        "streetAddress": "575 SW",
+                        "streetAddress": "575 SW Washington Ave",
                         "city" : "Corvallis",
                         "state" : "OR",
                         "zip" : "97333"
                         },
                         {
                         "id": 78, 
-                        "coords" :{ "latitude": , "longitude": },
+                        "coords" :{ "latitude": 44.636633, "longitude": -123.074671},
                         "title" : "Santiam Liquor",
                         "streetAddress": "2530 Pacific Blvd SE",
                         "city" : "Albany",
