@@ -1,3 +1,5 @@
+
+
 .ecom-bg-image {
     background-image: url('../img/risq-energy-ecommerce.jpg');
     background-color: $black;
@@ -161,7 +163,8 @@ color: $black;
 .hidden,
 .horizTran-50,
 .ecom-bg-image,
-.ecom-bg-change-background {
+.ecom-bg-change-background,
+#errorMessage {
 	-webkit-transition: 0.5s;
 	-moz-transition: 0.5s;
 	-ms-transition: 0.5s;

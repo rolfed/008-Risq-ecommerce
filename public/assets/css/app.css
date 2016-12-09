@@ -7798,6 +7798,10 @@ a#bottom :hover {
   color: #fff;
 }
 
+.red {
+  color: #EF1100;
+}
+
 h2 {
   font-family: "eloquent-jf-small-caps-pro" !important;
 }
@@ -7840,6 +7844,11 @@ p.location-info {
   }
 }
 
+button[ng-click],
+a[ng-click] {
+  cursor: pointer;
+}
+
 a.showHideRecipe {
   float: right;
   font-size: 40px;
@@ -7857,13 +7866,17 @@ a.showHideRecipe {
 }
 
 .btn-ecom {
+  padding: 25px 21px 7px;
+}
+
+.btn-back-address,
+.btn-ecom {
   text-transform: uppercase;
   border: solid 10px #fff;
   background: rgba(255, 255, 255, 0.65);
-  padding: 25px 21px 7px;
   font-family: "eloquent-jf-small-caps-pro" !important;
-  font-size: 50px;
   color: #000;
+  font-size: 50px;
 }
 
 .btn-ecom-sm {
@@ -7876,6 +7889,12 @@ a.showHideRecipe {
   color: #000;
 }
 
+.btn-back-address {
+  top: 37px;
+  position: relative;
+  padding: 24px 22px 7px;
+}
+
 .btn-ecom,
 .btn-ecom-sm {
   -webkit-transition: 500ms ease;
@@ -7883,7 +7902,8 @@ a.showHideRecipe {
 }
 
 .btn-ecom:hover,
-.btn-ecom-sm:hover {
+.btn-ecom-sm:hover,
+.btn-back-address:hover {
   color: #fff !important;
   text-decoration: none !important;
   -webkit-transition: 500ms ease;
@@ -8342,7 +8362,8 @@ input#expiry-year {
 .hidden,
 .horizTran-50,
 .ecom-bg-image,
-.ecom-bg-change-background {
+.ecom-bg-change-background,
+#errorMessage {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }

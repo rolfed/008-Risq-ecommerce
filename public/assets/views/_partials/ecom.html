@@ -113,6 +113,7 @@
     <div class="col-sm-12 bg-black fadeIn" id="view-4">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">Where Should We Ship</h1>
+       <h4><span id="errorMessage" class="hidden red">Please fill out all required fields.</span></h4>
        
     
           <!-- csrf_token -->
@@ -121,19 +122,19 @@
           <input type="hidden" name="products" value="{{ products }}">
           
           <div class="col-sm-6">
-            <input type="text" class="ecom-form ecom-form-selector" name="first-name" placeholder="First Name" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="first-name" placeholder="First Name">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form ecom-form-selector" name="last-name" placeholder="Last Name" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="last-name" placeholder="Last Name">
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form ecom-form-selector" name="address-line-1" placeholder="Address Line 1" data-stripe="address_line1" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="address-line-1" placeholder="Address Line 1" data-stripe="address_line1">
           </div>
           <div class="col-sm-12">
             <input type="text" class="ecom-form ecom-form-selector" name="address-line-2" placeholder="Address Line 2" data-stripe="address_line2">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form ecom-form-selector" name="city" placeholder="City" data-stripe="city" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="city" placeholder="City" data-stripe="city">
           </div>
           <div class="col-sm-2">
             <!-- <input type="text" class="ecom-form" placeholder="State" required> -->
@@ -193,22 +194,22 @@
               </select>
           </div>  
           <div class="col-sm-4">
-            <input type="text" class="ecom-form ecom-form-selector" name="zip" placeholder="Zip" data-stripe="address_zip" required>
+            <input type="text" class="ecom-form ecom-form-selector" name="zip" placeholder="Zip" data-stripe="address_zip">
           </div>
           
           <div class="col-sm-12">
-            <input type="email" class="ecom-form ecom-form-selector" name="email" placeholder="Email" data-stripe="email" required>
+            <input type="email" class="ecom-form ecom-form-selector" name="email" placeholder="Email" data-stripe="email">
           </div> 
           
           <div class="col-sm-9 ecom-btn-padding">
-            <button class="btn-ecom" ng-click="addrValidation(); paymentInput();">Payment</button>
+            <button class="btn-ecom" ng-click="paymentInput();" id="payment-animation-button">Payment</button>
           </div> 
           
           <div class="col-sm-3 ecom-btn-padding text-right">
             <button class="btn-ecom" ng-click="checkoutBack();">Back</button>
           </div>
           
-          <div class="payment-errors"></div>
+          <!-- <div class="payment-errors"></div> -->
       </div><!--  /.ecom-qty-wrapper --> 
     </div><!-- /.View-4 -->
 
@@ -216,16 +217,16 @@
     <div class="col-sm-12 bg-black fadeIn" id="view-5">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">What is billing information?</h1>
-       <span class="payment-errors"></span>
+       <!-- <span class="payment-errors">Please fill out all required fields.</span> -->
 
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" placeholder="Full Name" data-stripe="name" required>
+            <input type="text" class="ecom-form" placeholder="Full Name" data-stripe="name">
           </div>
           <div class="col-sm-12">
-            <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number" required>
+            <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number">
           </div>
           <div class="col-sm-3">
-              <select class="ecom-form" data-stripe="exp_month" id="expiry-month" required="">
+              <select class="ecom-form required" data-stripe="exp_month" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -242,7 +243,7 @@
               </select>
           </div>
           <div class="col-sm-3">
-              <select class="ecom-form" data-stripe="exp_year" required>
+              <select class="ecom-form" data-stripe="exp_year">
                 <option>Year</option>
                 <option value="16">2016</option>
                 <option value="17">2017</option>
@@ -258,21 +259,20 @@
               </select>
            </div>
            <div class="col-sm-3">
-              <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc" required>
+              <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc">
            </div>
           
           <div class="col-sm-12">
             <div class="btn-checkout-wrapper">
-              <div class="col-sm-9 col-12-no-padding-left">
-                <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
-              </div>  
-
-              <div class="col-sm-3 ecom-btn-padding text-right">
-                <button class="btn-ecom">Back</button>
-              </div>  
+            <div class="col-sm-3 pull-right">
+              <a class="btn-back-address" ng-click="backToAddress();">Back</a>
+            </div>
+            <div class="col-sm-9 col-12-no-padding-left">
+              <button class="uppercase btn-ecom" type="submit" id="submit-form" value="Submit Payment">Purchase</button>
+            </div>   
             </div>
           </div>
-      </div> 
+      </div><!-- /.ecom-qty-wrapper --> 
     </div><!-- /.View-5 -->
 </form>
 

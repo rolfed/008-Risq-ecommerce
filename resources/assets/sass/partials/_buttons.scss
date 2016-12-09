@@ -1,3 +1,7 @@
+button[ng-click],
+a[ng-click] {
+	cursor: pointer;
+}
 a.showHideRecipe {
     float: right;
     font-size: 40px;
@@ -14,14 +18,16 @@ a.showHideRecipe {
   background-color: rgba(255,255,255,0.3);
 }
 .btn-ecom {
+	padding: 25px 21px 7px;
+}
+.btn-back-address,
+.btn-ecom {
 	text-transform: uppercase;
 	border: solid 10px $white;
 	background: rgba($white, 0.65);
-	padding: 25px 21px 7px;
 	font-family: "eloquent-jf-small-caps-pro"!important; 
-	font-size: 50px;
 	color: $black;
-	// margin-top: 30px;
+	font-size: 50px;
 }
 .btn-ecom-sm {
 	text-transform: uppercase;
@@ -33,13 +39,19 @@ a.showHideRecipe {
 	color: $black;
 	// margin-top: 30px;
 }
+.btn-back-address {
+	top: 37px;
+	position: relative;
+	padding: 24px 22px 7px;
+}
 .btn-ecom,
 .btn-ecom-sm {
 	-webkit-transition: 500ms ease;
 	transition: 500ms ease;
 }
 .btn-ecom:hover,
-.btn-ecom-sm:hover {
+.btn-ecom-sm:hover,
+.btn-back-address:hover {
 	color: $white !important;
 	text-decoration: none !important;
 	-webkit-transition: 500ms ease;
