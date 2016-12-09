@@ -575,6 +575,87 @@ function MapCtrl($scope, $http){
                         "city"  		:   "Keize",
                         "state"			: 	"OR",
                         "zip"  			: 	"97303"
+                        },
+                        {
+                        "id": 70, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Stop n Save",
+                        "streetAddress": "630 Main ST",
+                        "city" : "Aumsville",
+                        "state" : "OR",
+                        "zip" : "97325"
+                        },
+                        {
+                        "id": 71, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Space Age",
+                        "streetAddress": "3135 Santiam HWY SE",
+                        "city" : "Albany",
+                        "state" : "OR",
+                        "zip" : "97322"
+                        },
+                        {
+                        "id": 72, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Honky tonk Bar",
+                        "streetAddress": "2275 Mcgilchrist St. SE",
+                        "city" : "Salem",
+                        "state" : "OR",
+                        "zip" : "97302"
+                        },
+                        {
+                        "id": 73, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Progress Grocery & deli",
+                        "streetAddress": "8624 SW Hall Blvd",
+                        "city" : "Beaverton",
+                        "state" : "OR",
+                        "zip" : "97008"
+                        },
+                        {
+                        "id": 74, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "7 Eleven",
+                        "streetAddress": "4715 SW Murray Blvd",
+                        "city" : "Beaverton",
+                        "state" : "OR",
+                        "zip" : "97005"
+                        },
+                        {
+                        "id": 75, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Woodburn Liquor OLC Spirits and More",
+                        "streetAddress": "1519 N Pacific HWY",
+                        "city" : "Woodburn",
+                        "state" : "OR",
+                        "zip" : "97071"
+                        },
+                        {
+                        "id": 76, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "AM/PM",
+                        "streetAddress": "850 Lawson Ave",
+                        "city" : "Woodburn",
+                        "state" : "OR",
+                        "zip" : "97071"
+                        },
+                        {
+                        "id": 77, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Debs mixers Washington ST. Liquor store",
+                        "streetAddress": "575 SW",
+                        "city" : "Corvallis",
+                        "state" : "OR",
+                        "zip" : "97333"
+                        },
+                        {
+                        "id": 78, 
+                        "coords" :{ "latitude": , "longitude": },
+                        "title" : "Santiam Liquor",
+                        "streetAddress": "2530 Pacific Blvd SE",
+                        "city" : "Albany",
+                        "state" : "OR",
+                        "zip" : "97322"
                         }
                     ] 	
             	}

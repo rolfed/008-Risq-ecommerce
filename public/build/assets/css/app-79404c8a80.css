@@ -8423,7 +8423,7 @@ input#expiry-year {
     height: auto;
   }
   .ecom-border {
-    width: 386px;
+    width: 100%;
   }
   .btn-grab-wrapper {
     padding-top: 20%;
