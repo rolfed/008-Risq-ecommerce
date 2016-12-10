@@ -7,7 +7,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-get update
 RUN apt-get install -y libterm-readline-perl-perl apt-utils
 RUN apt-get upgrade -y
-RUN apt-get install -y htop lsof mlocate apt-utils curl mlocate curl git netcat iputils-ping mysql-client vim
+RUN apt-get install -y htop lsof mlocate apt-utils curl mlocate curl git netcat iputils-ping mysql-client vim openssh-server
  
 RUN apt-get install -y libmcrypt-dev
 #RUN docker-php-ext-install mcrypt
@@ -32,6 +32,10 @@ RUN apt-get install -y nodejs  npm
 WORKDIR /var/www/$HOST
 COPY . /var/www/$HOST
 RUN chown -R www-data /var/www/$HOST
+
+RUN mkdir /root/.ssh
+COPY .\ssh /root/.ssh/
+RUN chmod 700 /root/ssh
  
 RUN echo " \n\
 <VirtualHost *:80> \n\

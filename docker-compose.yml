@@ -8,3 +8,4 @@ services:
         #    - ./:/var/www
         ports:
             - "80:80"
+            - "2222:22"            
