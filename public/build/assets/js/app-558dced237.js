@@ -833,10 +833,8 @@ function address(){
 		$scope.viewMore = function(){
 			var el = document.getElementById('address-wrapper');
 			var height = el.offsetHeight;
-			var addressHeight = document.getElementById("address-wrapper");
-			console.log(addressHeight);
 		
-			if(height < 2250){
+			if(height < 2049){
 				var newHeight = height + 215;
 				el.style.height = newHeight + 'px';
 
@@ -1024,7 +1022,6 @@ function ecom(){
 			var zip = document.forms['payment-form']['zip'].value;
 			var state = document.forms['payment-form']['state'].value;
 			var email = document.forms['payment-form']['email'].value;
-			var regex = /^\*?[a-zA-Z]{2,}\*?$/;
 
 			/* Error message */
 			var errorMsg = document.getElementById('errorMessage');
@@ -1036,8 +1033,13 @@ function ecom(){
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
 
-			if( firstName == null || lastName  ==  null || addr1 ==  null || city  ==  null || zip  ==  null || state  ==  "state" || email  ==  null){
+			if( firstName == null || lastName  ==  null || addr1 ==  null || city  ==  null || zip  ==  null || state  ==  null || email  ==  null || state  ==  "State"){
 				errorMsg.className = 'fadeIn red';
+			
+			} else if( (firstName == null || lastName  ==  null || addr1 ==  null || city  ==  null || zip  ==  null || state  ==  null || email  ==  null) && state  !=  "State") {
+				console.log("Please please");
+				return
+			
 			} else {
 				view4.style.right="-100%";
 				view4.style.opacity="0";
@@ -1058,8 +1060,8 @@ function ecom(){
 			var btn = document.getElementById('submit-form');
 			var errorMessage = document.getElementById('errorMessageStripePayment');
 			btn.addEventListener('click', function(){
-				//console.log('btn clicked');
-				//console.log(errorMessage);
+				console.log('btn clicked');
+				console.log(errorMessage);
 				errorMessage.className = 'payment-errors red';
 			});
 		};	
@@ -1197,17 +1199,6 @@ function orderMobile(){
             Stripe.card.createToken($form, stripeResponseHandler);
             return false;  
         });
-
-        /* Unide Error Message */
-        $scope.paymentButtonClickedShowErrorMessage = function(){
-            var btn = document.getElementById('submit-form');
-            var errorMessage = document.getElementById('errorMessageStripePayment');
-            btn.addEventListener('click', function(){
-                //console.log('btn clicked');
-                //console.log(errorMessage);
-                errorMessage.className = 'payment-errors red';
-            });
-        };
 
 	}
 

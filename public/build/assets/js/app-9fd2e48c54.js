@@ -851,10 +851,8 @@ function address(){
 		$scope.viewMore = function(){
 			var el = document.getElementById('address-wrapper');
 			var height = el.offsetHeight;
-			var addressHeight = document.getElementById("address-wrapper");
-			console.log(addressHeight);
 		
-			if(height < 2250){
+			if(height < 2049){
 				var newHeight = height + 215;
 				el.style.height = newHeight + 'px';
 
@@ -1075,8 +1073,8 @@ function ecom(){
 			var btn = document.getElementById('submit-form');
 			var errorMessage = document.getElementById('errorMessageStripePayment');
 			btn.addEventListener('click', function(){
-				//console.log('btn clicked');
-				//console.log(errorMessage);
+				console.log('btn clicked');
+				console.log(errorMessage);
 				errorMessage.className = 'payment-errors red';
 			});
 		};	
@@ -1214,17 +1212,6 @@ function orderMobile(){
             Stripe.card.createToken($form, stripeResponseHandler);
             return false;  
         });
-
-        /* Unide Error Message */
-        $scope.paymentButtonClickedShowErrorMessage = function(){
-            var btn = document.getElementById('submit-form');
-            var errorMessage = document.getElementById('errorMessageStripePayment');
-            btn.addEventListener('click', function(){
-                //console.log('btn clicked');
-                //console.log(errorMessage);
-                errorMessage.className = 'payment-errors red';
-            });
-        };
 
 	}
 
