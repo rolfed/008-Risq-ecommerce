@@ -203,11 +203,11 @@
           </div> 
           
           <div class="col-sm-9 ecom-btn-padding">
-            <button class="btn-ecom" ng-click="paymentInput();" id="payment-animation-button">Payment</button>
+            <a class="btn-ecom btn-back-address" ng-click="paymentInput();" id="payment-animation-button">Payment</a>
           </div> 
           
           <div class="col-sm-3 ecom-btn-padding text-right">
-            <button class="btn-ecom" ng-click="checkoutBack();">Back</button>
+            <a class="btn-ecom btn-back-address" ng-click="checkoutBack();">Back</a>
           </div>
           
           <!-- <div class="payment-errors"></div> -->
@@ -218,7 +218,7 @@
     <div class="col-sm-12 bg-black fadeIn" id="view-5">
       <div class="ecom-qty-wrapper">
        <h1 class="white uppercase">What is billing information?</h1>
-       <h4><span class="payment-errors red hidden" id="errorMessageStripePayment"></span></h4>
+       <h4><span class="payment-errors red" id="errorMessageStripePayment"></span></h4>
 
           <div class="col-sm-12">
             <input type="text" class="ecom-form" placeholder="Full Name" data-stripe="name">
@@ -228,15 +228,15 @@
           </div>
             <div class="col-sm-12">
               <label class="mmyy-label">
-                <input type="text" size="2" placeholder="MM" data-stripe="exp_month" class="ecom-form mmyy" id="expiry-month">
+                <input type="text" size="2" placeholder="MM" maxlength="2"  data-stripe="exp_month" class="ecom-form mmyy" id="expiry-month">
               </label>
 
               <label class="mmyy-label">
-                <input type="text" size="2" placeholder="YY" data-stripe="exp_year" class="ecom-form mmyy">
+                <input type="text" size="2" placeholder="YY" maxlength="2"  data-stripe="exp_year" class="ecom-form mmyy">
               </label>
 
               <label class="mmyy-label">
-                <input type="text" class="ecom-form" placeholder="CVC" data-stripe="cvc" class="ecom-form mmyy">
+                <input type="text" class="ecom-form" maxlength="4"  placeholder="CVC" data-stripe="cvc" class="ecom-form mmyy">
               </label>  
             </div>
           

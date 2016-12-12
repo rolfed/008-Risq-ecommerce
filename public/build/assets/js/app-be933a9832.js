@@ -1058,15 +1058,18 @@ function ecom(){
 		}
 
 		/* Unide Error Message */
-		$scope.paymentButtonClickedShowErrorMessage = function(){
-			var btn = document.getElementById('submit-form');
-			var errorMessage = document.getElementById('errorMessageStripePayment');
-			btn.addEventListener('click', function(){
-				//console.log('btn clicked');
-				//console.log(errorMessage);
-				errorMessage.className = 'payment-errors red';
-			});
-		};	
+		// $scope.paymentButtonClickedShowErrorMessage = function(status, response){
+		// 	var btn = document.getElementById('submit-form');
+		// 	var errorMessage = document.getElementById('errorMessageStripePayment');
+
+		// 	btn.addEventListener('click', function(status, response){
+		// 		// console.log(status, response);
+		// 		console.log("Stripe error is " + response.error);
+		// 		if(response.error){
+		// 			errorMessage.className = 'payment-errors red';
+		// 		}
+		// 	});
+		// };	
 	};
 	/* Load Template */
 	return directive;

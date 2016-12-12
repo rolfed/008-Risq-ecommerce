@@ -53,12 +53,9 @@ class BillingController extends Controller
 
 			));
 
-			// $customer = Customer::create(array(
-			// 	'email' => 'info@dannielrolfe.com'
-			// ));
 
 			$data = array(
-				"levels" => "levels"
+				"levels" => "levels",
 			);
 
 			return view('order-complete', compact($data));
