@@ -174,7 +174,6 @@ function ecom(){
 			var zip = document.forms['payment-form']['zip'].value;
 			var state = document.forms['payment-form']['state'].value;
 			var email = document.forms['payment-form']['email'].value;
-			var regex = /^\*?[a-zA-Z]{2,}\*?$/;
 
 			/* Error message */
 			var errorMsg = document.getElementById('errorMessage');
@@ -186,9 +185,13 @@ function ecom(){
 			var view4 = document.querySelector('#view-4');
 			var view5 = document.querySelector('#view-5');
 
-			if( firstName == null || lastName  ==  null || addr1 ==  null || city  ==  null || zip  ==  null || state  ==  "state" || email  ==  null){
+			if( firstName == "" || lastName == "" || addr1 == "" || city == "" || zip == "" || state == "" || email == ""){
+				console.log("Not filled out");
 				errorMsg.className = 'fadeIn red';
+				return
+
 			} else {
+
 				view4.style.right="-100%";
 				view4.style.opacity="0";
 				
@@ -199,6 +202,7 @@ function ecom(){
 					view5.style.right="0";
 					//view5.classList.toggle('hidden');
 				}, 100);
+			
 			}
 
 		}

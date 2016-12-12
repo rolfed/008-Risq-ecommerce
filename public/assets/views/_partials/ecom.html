@@ -85,7 +85,7 @@
 				<div class="ecom-border">
 					<ul class="ecom-qty-wrapper">
 						<li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="decreaseItemCount(product)">-</a></div></li>
-						<li><p class="ecom-total-qty">{{product.qty}}</p></li>
+						<li><p class="ecom-total-qty" data-stipe="order" >{{product.qty}}</p></li>
             <li><div class="btn-round text-center"><a class="btn-qty-ecom" ng-click="increaseItemCount(product)">+</a></div></li>
 						<li><p class="ecom-total-qty" ng-bind="sumCalc({{$index}})"></p></li>
 					</ul>
@@ -134,11 +134,12 @@
             <input type="text" class="ecom-form ecom-form-selector" name="address-line-2" placeholder="Address Line 2" data-stripe="address_line2">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="ecom-form ecom-form-selector" name="city" placeholder="City" data-stripe="city">
+            <input type="text" class="ecom-form ecom-form-selector" name="city" placeholder="City" data-stripe="address_city">
           </div>
           <div class="col-sm-2">
+            <input type="text" class="ecom-form ecom-form-selector" name="state" maxlength="2" placeholder="State" data-stripe="address_state">
             <!-- <input type="text" class="ecom-form" placeholder="State" required> -->
-            <select class="ecom-form ecom-form-selector" name="state" id="state"  data-stripe="address_state" required>
+           <!--  <select class="ecom-form ecom-form-selector" name="state" id="state"  data-stripe="address_state" required>
                 <option>State</option>
                 <option value="AL">AL</option>
                     <option value="AK">AK</option>
@@ -191,7 +192,7 @@
                     <option value="WV">WV</option>
                     <option value="WI">WI</option>
                     <option value="WY">WY</option>
-              </select>
+              </select> -->
           </div>  
           <div class="col-sm-4">
             <input type="text" class="ecom-form ecom-form-selector" name="zip" placeholder="Zip" data-stripe="address_zip">
