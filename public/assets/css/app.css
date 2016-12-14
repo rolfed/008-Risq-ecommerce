@@ -7869,14 +7869,28 @@ a.showHideRecipe {
   padding: 25px 21px 7px;
 }
 
+.btn-ecom-lg {
+  padding: 35px 61px 7px;
+}
+
+.btn-ecom-lg {
+  font-size: 70px;
+  line-height: 1em;
+}
+
 .btn-back-address,
 .btn-ecom {
+  font-size: 50px;
+}
+
+.btn-back-address,
+.btn-ecom,
+.btn-ecom-lg {
   text-transform: uppercase;
   border: solid 10px #fff;
   background: rgba(255, 255, 255, 0.65);
   font-family: "eloquent-jf-small-caps-pro" !important;
   color: #000;
-  font-size: 50px;
 }
 
 .btn-ecom-sm {
@@ -7903,7 +7917,8 @@ a.showHideRecipe {
 
 .btn-ecom:hover,
 .btn-ecom-sm:hover,
-.btn-back-address:hover {
+.btn-back-address:hover,
+.btn-ecom-lg:hover {
   color: #fff !important;
   text-decoration: none !important;
   -webkit-transition: 500ms ease;
@@ -8218,7 +8233,7 @@ a.showHideRecipe {
 }
 
 .btn-grab-wrapper {
-  padding-top: 30%;
+  padding-top: 20%;
 }
 
 .btn-checkout-wrapper {

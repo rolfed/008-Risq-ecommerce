@@ -8,8 +8,8 @@
         <meta charset="utf-8">
         <meta http-equiv"X-UA-Compatible" content="IE=edge">
         <title>Risq Energy - Drink It - Mix It - Share It</title>
-        <meta name="description" content="Risq Energy - Drink It - Mix It - Share It. Follow Risq on Instagram @risqenergy and Facebook www.facebook.com/risqenergy. Contact Risq at info@risqeneryg.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Risq Energy - Drink It - Mix It - Share It. Follow Risq on Instagram @risqenergy and Facebook www.facebook.com/risqenergy. Contact Risq at info@risqeneryg.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
 
         <!-- CSRF Token -->
         <meta content="ie=edge" http-equiv="x-ua-compatible">
@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('/bower_components/social-share-kit/dist/css/social-share-kit.css') }}" />
 
         <!-- Include Stripe -->
-        <script type="text/javascript" src="https://js.stripe.com/v2/" async></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
         <!-- bower:js -->
         <script src='{{ asset('/bower_components/jquery/dist/jquery.js') }}'></script>

@@ -20,14 +20,25 @@ a.showHideRecipe {
 .btn-ecom {
 	padding: 25px 21px 7px;
 }
+.btn-ecom-lg {
+	padding: 35px 61px 7px;
+}
+.btn-ecom-lg {
+	font-size: 70px;
+	line-height: 1em;
+}
 .btn-back-address,
 .btn-ecom {
+	font-size: 50px;
+}
+.btn-back-address,
+.btn-ecom,
+.btn-ecom-lg {
 	text-transform: uppercase;
 	border: solid 10px $white;
 	background: rgba($white, 0.65);
 	font-family: "eloquent-jf-small-caps-pro"!important; 
 	color: $black;
-	font-size: 50px;
 }
 .btn-ecom-sm {
 	text-transform: uppercase;
@@ -51,7 +62,8 @@ a.showHideRecipe {
 }
 .btn-ecom:hover,
 .btn-ecom-sm:hover,
-.btn-back-address:hover {
+.btn-back-address:hover,
+.btn-ecom-lg:hover {
 	color: $white !important;
 	text-decoration: none !important;
 	-webkit-transition: 500ms ease;
@@ -92,5 +104,8 @@ a.showHideRecipe {
 		font-size: 30px;
 		color: $black;
 		// margin-top: 30px;
+	}
+	.btn-ecom-lg {
+
 	}
 }
