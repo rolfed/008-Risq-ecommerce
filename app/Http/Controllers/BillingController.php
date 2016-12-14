@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Stripe\Charge;
 use Stripe\Customer;
 use Stripe\Stripe;
+use Stripe\Event;
 
 
 
@@ -18,7 +19,6 @@ class BillingController extends Controller
 		Stripe::setApiKey(env('STRIPE_API_SECRET'));
 
 		$token = $request->stripeToken;
-
 		$total = json_decode($request->total, true);
 		$products = json_decode($request->products, true);
 		$timeStamp = date('d-m-Y');
@@ -57,6 +57,7 @@ class BillingController extends Controller
 			$data = array(
 				"levels" => "levels",
 			);
+		
 
 			return view('order-complete', compact($data));
 

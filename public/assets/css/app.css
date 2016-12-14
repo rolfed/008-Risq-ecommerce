@@ -8447,6 +8447,9 @@ input#expiry-year {
   .mmyy-label {
     margin-right: 30px;
   }
+  .ecom-qty-wrapper li {
+    padding-left: 15px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -8456,6 +8459,9 @@ input#expiry-year {
   .mmyy-label {
     margin-right: 30px;
     width: 100%;
+  }
+  .ecom-qty-wrapper li {
+    padding-left: 15px;
   }
 }
 
