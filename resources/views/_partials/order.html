@@ -1,6 +1,6 @@
  <div ng-controller="EcomCtrl" >
  <div class="space-lg"></div>
-    <div class="row  bg-black" >
+    <div class="row bg-black" >
       <div class="col-sm-12" >  
         <div class="ecom-wrapper">
           <div ng-repeat="product in products">
@@ -104,7 +104,7 @@
                     <option value="WI">WI</option>
                     <option value="WY">WY</option>
                 </select>
-                <input type="text" class="ecom-form" name="zip" placeholder="Zip" data-stripe="address_zip" required>
+                <input type="text" class="ecom-form" name="zip" maxlength="5" placeholder="Zip" data-stripe="address_zip" required>
           <input type="email" class="ecom-form" name="email" placeholder="Email" data-stripe="email" required>  
           
           <div class="space-lg"></div>  
@@ -112,15 +112,15 @@
           <input type="text" class="ecom-form" placeholder="Name on card" data-stripe="name" required>  
           <input type="text" class="ecom-form" maxlength="20" type="number" data-stripe="number" placeholder="Card Number" required>
           <label class="mmyy-label">
-            <input type="text" size="2" placeholder="MM" data-stripe="exp_month" class="ecom-form mmyy" id="expiry-month" required>
+            <input type="text" size="2" placeholder="MM" data-stripe="exp_month" maxlength="2" class="ecom-form mmyy" id="expiry-month" required>
           </label>
 
           <label class="mmyy-label">
-            <input type="text" size="2" placeholder="YY" data-stripe="exp_year" class="ecom-form mmyy" required>
+            <input type="text" size="2" placeholder="YY" data-stripe="exp_year" maxlength="2" class="ecom-form mmyy" required>
           </label>
 
           <label class="mmyy-label">
-            <input type="text" size="2" class="ecom-form" placeholder="CVC" data-stripe="cvc" class="ecom-form mmyy" required>
+            <input type="text" size="2" class="ecom-form" placeholder="CVC" maxlength="4" data-stripe="cvc" class="ecom-form mmyy" required>
           </label>  
       
       <div class="space-lg"></div>

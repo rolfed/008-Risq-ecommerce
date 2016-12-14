@@ -8325,12 +8325,16 @@ input#expiry-year {
 }
 
 .mmyy {
-  margin-right: 10px;
+  margin-right: 0px;
 }
 
 .mmyy-label {
-  margin-right: 30px;
+  margin-right: 0px;
   width: 25%;
+}
+
+.ecom-margin {
+  margin-right: 30px;
 }
 
 ::-webkit-input-placeholder {
@@ -8459,9 +8463,6 @@ input#expiry-year {
   .sub-total {
     font-size: 40px;
   }
-  .mmyy-label {
-    margin-right: 30px;
-  }
   .ecom-qty-wrapper li {
     padding-left: 15px;
   }
@@ -8472,7 +8473,6 @@ input#expiry-year {
     padding-right: 20px;
   }
   .mmyy-label {
-    margin-right: 30px;
     width: 100%;
   }
   .ecom-qty-wrapper li {
