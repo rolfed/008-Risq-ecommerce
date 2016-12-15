@@ -47,7 +47,7 @@ class BillingController extends Controller
 			$charge = Charge::create(array(
 				"amount" => $sum,
 				"currency" => "usd",
-				"source" => $token,
+				// "source" => $token,
 				"description" => $description,
 				"receipt_email" => $request->email
 
